@@ -5,104 +5,69 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+# Đề xuất Dự án: AI Dungeon RPG Adventure Game
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+## 1. Tóm tắt điều hành
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+Dự án game 2D tích hợp AI trong việc phát triển cốt truyện là một bước tiến mới trong thể loại game nhập vai phiêu lưu (RPG). Hệ thống kết hợp sự sáng tạo của Trí tuệ Nhân tạo Sinh tạo (Generative AI) với sự mạnh mẽ của kiến trúc đám mây không máy chủ (AWS Serverless). 
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Trò chơi cho phép người chơi tạo nhân vật và đắm chìm vào những cuộc phiêu lưu tự do. Cốt truyện, thử thách và các trận đấu Boss (Turn-based) không được lập trình sẵn mà được sinh ra theo thời gian thực (real-time) dựa trên các quyết định của người chơi thông qua **AWS Bedrock**. Toàn bộ trải nghiệm được thể hiện sống động qua **Unity 2D Client**, kết nối với hệ thống Backend mạnh mẽ được viết bằng **.NET 8** trên AWS.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+## 2. Tuyên bố vấn đề
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+### Khó khăn của Game RPG Truyền thống
+*   **Kịch bản cứng nhắc:** Các game RPG truyền thống thường bị giới hạn bởi các nhánh kịch bản cố định (hard-coded). Dù đầu tư nhiều công sức, nội dung game vẫn sẽ cạn kiệt, khiến người chơi nhanh chóng cảm thấy nhàm chán và giảm tính chơi lại.
+*   **Chi phí vận hành khổng lồ:** Việc duy trì các máy chủ game Stateful truyền thống tốn rất nhiều chi phí cho phần cứng rảnh rỗi và gặp khó khăn khi cần mở rộng quy mô (scale) đột ngột.
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+### Giải pháp đột phá
+*   **Cốt truyện động bằng AI:** Ứng dụng mô hình LLM từ **AWS Bedrock** để tự động sinh ra bối cảnh, diễn biến, và phản hồi theo đúng ngữ cảnh hành động của người chơi.
+*   **Hạ tầng Serverless linh hoạt:** Toàn bộ logic game (tài khoản, kho đồ, tính toán chiến đấu) được xử lý bởi **AWS Lambda** và lưu trữ cực nhanh qua **Amazon DynamoDB**, giúp tự động co giãn theo số lượng người chơi và tối ưu chi phí với mô hình trả tiền theo nhu cầu (Pay-as-you-go).
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+## 3. Kiến trúc giải pháp
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+Dự án sử dụng 100% kiến trúc Serverless trên nền tảng AWS, tách biệt hoàn toàn giữa Game Client và Backend để đảm bảo bảo mật và hiệu năng.
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+![AWS Architecture Diagram](images/aws-architect-project.png)
+*(Sơ đồ kiến trúc tổng thể của hệ thống)*
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+*   **Amazon API Gateway & Cognito:** Xử lý xác thực người dùng (Login/Register) và cấp phát JWT Token. Mọi yêu cầu từ Game Client đều được xác thực nghiêm ngặt tại cổng này.
+*   **Compute Tier (AWS Lambda - .NET 8):** Các hàm phân tán đảm nhận logic nghiệp vụ: Quản lý nhân vật, hệ thống kho đồ (Inventory), tính toán kết quả trận đấu (Battle System), và xử lý giao tiếp với AI.
+*   **Database Tier (Amazon DynamoDB):** Cơ sở dữ liệu NoSQL với độ trễ thấp, chịu trách nhiệm lưu trữ cấu hình vật phẩm, trạng thái người chơi và lịch sử màn chơi.
+*   **AWS Bedrock:** "Bộ não" sáng tạo của trò chơi, tiếp nhận ngữ cảnh và sinh ra cốt truyện trực tiếp cho người chơi.
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+## 4. Triển khai kỹ thuật
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+Dự án áp dụng cấu trúc **Monorepo**, cho phép chia sẻ trực tiếp các Models và cấu trúc dữ liệu (DTOs) giữa C# Unity Client và C# Lambda Backend.
+*   **Frontend (Game Client):** Xây dựng bằng Unity (C#) với Universal Render Pipeline (URP) 2D. Giao tiếp với Backend qua RESTful API.
+*   **Backend & IaC:** Toàn bộ hạ tầng được định nghĩa bằng mã nguồn (Infrastructure as Code) thông qua **AWS CDK (C#)**, giúp dễ dàng triển khai (deploy) đồng loạt lên bất kỳ môi trường nào (Dev/Prod).
+*   **Bảo mật:** Sử dụng kiến trúc Server-Authoritative (Backend quyết định kết quả cuối cùng). Mọi thao tác tính toán máu, sát thương, vật phẩm đều thực hiện tại Lambda, ngăn chặn tình trạng gian lận (cheat/hack) từ phía Client.
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+## 5. Lộ trình & Mốc triển khai
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+*   **Milestone 1 (22/06/2026 - 05/07/2026):** Hoàn thiện kiến trúc tổng thể, thiết lập AWS CDK, triển khai thành công Amazon Cognito (Đăng nhập/Đăng ký) và DynamoDB.
+*   **Milestone 2 (06/07/2026 - 19/07/2026):** Tích hợp AWS Bedrock, xây dựng hệ thống tạo `Prompt` tự động dựa trên ngữ cảnh và bộ phân tích phản hồi (Response Parser) để đưa dữ liệu JSON của AI vào game.
+*   **Milestone 3 (20/07/2026 - 02/08/2026):** Hoàn thiện logic Backend cho các tính năng: Chiến đấu theo lượt (Turn-based RPG Battle), Sinh Boss, Quản lý vật phẩm (Inventory).
+*   **Milestone 4 (03/08/2026 - 15/08/2026):** Tích hợp hoàn chỉnh Unity Client với Backend API, kiểm thử toàn diện (End-to-End Testing) và tối ưu hóa độ trễ phản hồi của AI.
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+## 6. Ước tính ngân sách
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+Một trong những ưu điểm lớn nhất của dự án là khả năng tận dụng triệt để gói miễn phí (Free Tier) của AWS trong giai đoạn thử nghiệm:
+*   **AWS Cognito / Lambda / DynamoDB:** $0.00 (Hoàn toàn nằm trong hạn mức miễn phí).
+*   **AWS Bedrock:** Tính theo lượng Token sử dụng (khoảng $1.00 - $5.00/tháng cho lưu lượng test).
+*   **Amazon API Gateway & CloudWatch:** Khoảng $0.50 - $1.00/tháng.
+*   **Tổng chi phí dự kiến:** **~$1.50 - $6.00 / tháng**. Một con số cực kỳ lý tưởng cho một hệ thống game có khả năng chịu tải cao.
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+## 7. Đánh giá rủi ro
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+| Rủi ro | Tác động | Giải pháp Giảm thiểu |
+| :--- | :--- | :--- |
+| **Độ trễ AI (Bedrock Latency)** | Cao | Tích hợp hiệu ứng "loading/typing" mượt mà trên Unity Client để che giấu thời gian chờ API. |
+| **AI sinh dữ liệu sai JSON** | Trung bình | Backend có các Module kiểm tra tự động (Validator) và cơ chế tự động Fallback/Retry nếu cấu trúc trả về bị lỗi. |
+| **Vượt chi phí Token AI** | Thấp | Cấu hình giới hạn `max_tokens` nghiêm ngặt cho Bedrock và đặt cảnh báo ngân sách tự động (AWS Budgets). |
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+## 8. Kết quả kỳ vọng
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+*   **Trải nghiệm người chơi đột phá:** Một tựa game không bao giờ cũ nhờ khả năng sáng tạo kịch bản vô hạn của AI.
+*   **Hệ thống Framework chuẩn mực:** Tạo ra một bộ khung kiến trúc (Architecture Framework) vững chắc kết hợp giữa Unity và AWS .NET 8 Serverless. Bộ khung này có thể dễ dàng tái sử dụng và mở rộng cho các dự án game trực tuyến hoặc ứng dụng tương tác sau này.
+*   **Tối ưu hiệu quả vận hành:** Minh chứng cho việc xây dựng và duy trì hệ thống Game Online phức tạp với chi phí hạ tầng gần như bằng 0 trong giai đoạn đầu.

@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 8"
 date: 2024-01-01
-weight: 1
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Kiểm thử End-to-End toàn bộ Game, Đánh giá tối ưu hệ thống & Bàn giao đồ án.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
+| --- | --------- | ------------ | --------------- |
+| 2 | - Xây dựng kịch bản kiểm thử End-to-End (E2E).<br>- Test luồng: Đăng ký/Đăng nhập -> Tạo nhân vật. | 09/08/2026 | 09/08/2026 |
+| 3 | - Test luồng tương tác AI: Sinh cốt truyện AI -> Đưa ra lựa chọn -> Cập nhật trạng thái game. | 10/08/2026 | 10/08/2026 |
+| 4 | - Test luồng Gameplay: Nhận/trang bị vật phẩm -> Đánh Boss -> Lưu lịch sử (StorySession).<br>- Fix các bug phát sinh trong quá trình ghép nối. | 11/08/2026 | 12/08/2026 |
+| 5 | - Đánh giá hệ thống theo Khung kiến trúc AWS Well-Architected Framework (tập trung vào Security, Reliability, Performance Efficiency). | 13/08/2026 | 13/08/2026 |
+| 6 | - Tổng hợp và hoàn thiện báo cáo thực tập tốt nghiệp.<br>- Đóng gói toàn bộ mã nguồn (Backend CDK, Frontend Unity) và tài liệu hướng dẫn triển khai. | 14/08/2026 | 15/08/2026 |
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Tuần cuối cùng là lúc để hoàn thiện, đánh giá lại toàn bộ thành quả công việc trong suốt 2 tháng qua. Các kết quả cụ thể bao gồm:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* **Kiểm thử thành công toàn bộ luồng chơi:** Game đã vận hành trơn tru từ đầu đến cuối mà không gặp lỗi nghiêm trọng. Người chơi có thể đăng nhập, trải nghiệm hành trình độc nhất vô nhị do AI Storyteller tạo ra, chiến đấu với Boss và mọi trạng thái (vật phẩm, điểm số) đều được sao lưu thời gian thực về DynamoDB một cách chính xác.
+* **Đánh giá AWS Well-Architected:** Đối chiếu hệ thống với các tiêu chuẩn tốt nhất của AWS. Hệ thống đạt mức tốt về Bảo mật (nhờ IAM, Cognito, Secrets Manager), Ổn định (nhờ kiến trúc Serverless Lambda không lo sập server) và Hiệu suất (nhờ API Gateway và DynamoDB).
+* **Hoàn thiện Bàn giao:** Đã hoàn thành đóng gói mã nguồn và hoàn tất bài Báo cáo thực tập. Toàn bộ repo được viết kèm tài liệu README hướng dẫn các bước deploy lại hạ tầng CDK từ đầu, giúp dự án có thể dễ dàng chuyển giao hoặc mở rộng trong tương lai.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+  ![Trải nghiệm Game Hoàn thiện](/images/week8/gameplay_final.png)
+  *(Ghi chú: Cần bổ sung ảnh chụp màn hình gameplay hoàn thiện tại đây)*

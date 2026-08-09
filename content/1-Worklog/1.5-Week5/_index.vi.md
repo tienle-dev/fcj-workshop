@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 5"
-date: 2024-01-01
-weight: 1
+date: 2026-07-20
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Xây dựng kiến trúc Backend Serverless (AWS Lambda & API Gateway) cho game.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
+| --- | --------- | ------------ | --------------- |
+| 2 | - Tái cấu trúc (Refactor) mã nguồn Backend .NET 8 để phù hợp với kiến trúc Serverless.<br>- Tạo các AWS Lambda Handlers độc lập. | 20/07/2026 | 20/07/2026 |
+| 3 | - Tách logic xử lý thành các cụm chức năng riêng biệt: Auth, Character, Inventory, Story, Battle. | 21/07/2026 | 21/07/2026 |
+| 4 | - Cấu hình Amazon API Gateway để tạo các Endpoint RESTful API.<br>- Liên kết API Gateway với các hàm AWS Lambda tương ứng. | 22/07/2026 | 22/07/2026 |
+| 5 | - Đóng gói Backend thành Docker Image để đảm bảo tính nhất quán của môi trường chạy.<br>- Đẩy (Push) Docker Image lên Amazon ECR. | 23/07/2026 | 23/07/2026 |
+| 6 | - Triển khai và chạy thử nghiệm hệ thống Serverless hoàn chỉnh.<br>- Cập nhật URL endpoint mới vào mã nguồn Unity và test luồng game. | 24/07/2026 | 25/07/2026 |
 
 ### Kết quả đạt được tuần 5:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Tuần này đánh dấu một bước chuyển mình lớn của hệ thống khi tôi tiến hành chuyển đổi hoàn toàn kiến trúc Backend truyền thống sang mô hình Serverless hiện đại trên AWS:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* **Hoàn thiện các AWS Lambda Handlers:** Toàn bộ logic nghiệp vụ (Auth, Character, Inventory, Story, Battle) được chia nhỏ thành các hàm Lambda riêng biệt chạy trên nền .NET 8. Việc chia nhỏ này giúp ứng dụng dễ dàng bảo trì và mỗi chức năng có thể tự động mở rộng (scale) độc lập tùy theo lượng người chơi.
+* **Tích hợp API Gateway:** Đã thiết lập thành công cổng giao tiếp API Gateway kết nối trực tiếp đến các hàm Lambda. Cổng này đóng vai trò như một "lễ tân", tiếp nhận mọi yêu cầu RESTful API từ client (game Unity), kiểm tra tính hợp lệ và chuyển tiếp đến đúng hàm xử lý.
+* **Triển khai bằng Docker & ECR:** Thay vì deploy file zip thông thường, tôi đã đóng gói code thành Docker Image và lưu trữ trên kho Amazon Elastic Container Registry (ECR). Giải pháp này khắc phục được giới hạn về dung lượng của Lambda và đồng bộ tuyệt đối môi trường chạy, tạo nên một hệ thống backend cực kỳ ổn định, không cần phải quản lý và bảo trì máy chủ ảo (EC2) truyền thống.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+  ![Sơ đồ kiến trúc Serverless với API Gateway và Lambda](/images/week5/serverless_architecture.png)
+  *(Ghi chú: Cần bổ sung hình ảnh kiến trúc API Gateway -> Lambda hoặc giao diện ECR tại đây)*

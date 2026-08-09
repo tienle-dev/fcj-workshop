@@ -1,57 +1,32 @@
 ---
 title: "Week 5 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-07-20
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 5 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Build a Serverless Backend architecture (AWS Lambda & API Gateway) for the game.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date |
+| --- | ---- | ---------- | --------------- |
+| Mon | - Refactor the .NET 8 Backend source code to fit the Serverless architecture.<br>- Create independent AWS Lambda Handlers. | 07/20/2026 | 07/20/2026 |
+| Tue | - Separate processing logic into distinct functional clusters: Auth, Character, Inventory, Story, Battle. | 07/21/2026 | 07/21/2026 |
+| Wed | - Configure Amazon API Gateway to create RESTful API Endpoints.<br>- Link API Gateway with corresponding AWS Lambda functions. | 07/22/2026 | 07/22/2026 |
+| Thu | - Package the Backend into a Docker Image to ensure runtime environment consistency.<br>- Push the Docker Image to Amazon ECR. | 07/23/2026 | 07/23/2026 |
+| Fri | - Deploy and test the complete Serverless system.<br>- Update the new endpoint URL in the Unity source code and test the game flow. | 07/24/2026 | 07/25/2026 |
 
 ### Week 5 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+This week marked a major transformation for the system as I completely migrated the traditional Backend architecture to a modern Serverless model on AWS:
 
-* Successfully created and configured an AWS Free Tier account.
+* **Completion of AWS Lambda Handlers:** All business logic (Auth, Character, Inventory, Story, Battle) was broken down into separate Lambda functions running on .NET 8. This breakdown makes the application easy to maintain, and each function can automatically scale independently based on the number of players.
+* **API Gateway Integration:** Successfully established the API Gateway communication portal connecting directly to the Lambda functions. This gateway acts as a "receptionist", receiving all RESTful API requests from the client (Unity game), validating them, and forwarding them to the correct handler function.
+* **Deployment via Docker & ECR:** Instead of deploying a standard zip file, I packaged the code into a Docker Image and stored it on the Amazon Elastic Container Registry (ECR). This solution overcomes Lambda's size limits and perfectly synchronizes the runtime environment, creating an extremely stable backend system without the need to manage and maintain traditional virtual servers (EC2).
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+  ![Serverless Architecture with API Gateway and Lambda](/images/week5/serverless_architecture.png)
+  *(Note: Need to add API Gateway -> Lambda architecture image or ECR interface here)*

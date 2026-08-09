@@ -1,57 +1,43 @@
 ---
 title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-07-13
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Integrate Artificial Intelligence for story generation (Amazon Bedrock AI) for the AI Storyteller system.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date |
+| --- | ---- | ---------- | --------------- |
+| Mon | - Research Amazon Bedrock and Large Language Models (Claude LLM).<br>- Setup Bedrock API access permissions via IAM. | 07/13/2026 | 07/13/2026 |
+| Tue | - Program AWS SDK integration to call Amazon Bedrock API from the C# Backend.<br>- Test sending simple prompts and receiving responses. | 07/14/2026 | 07/14/2026 |
+| Wed | - Write the PromptBuilder module to automatically combine context: character information, equipped items, and previous turn history. | 07/15/2026 | 07/15/2026 |
+| Thu | - Optimize prompts so the AI acts as a Storyteller.<br>- Force the AI's returned data type to strictly adhere to JSON format. | 07/16/2026 | 07/16/2026 |
+| Fri | - Write a JSON output parsing function to generate story developments, player choices, and Boss encounter scenes.<br>- Integrate the display of AI content into the Unity UI. | 07/17/2026 | 07/18/2026 |
 
 ### Week 4 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+This was a core week to form the most unique feature of the game: the AI Storyteller. By utilizing the power of Amazon Bedrock, I accomplished the following:
 
-* Successfully created and configured an AWS Free Tier account.
+* **Successful Amazon Bedrock API Integration:** Configured IAM and successfully connected the C# Backend with the Bedrock service, specifically using the Claude model. Requests are sent and responded to quickly with minimal latency.
+* **PromptBuilder Module Construction:** Created a flexible mechanism that automatically gathers the player's current data (Name, Level, Items, Previous Actions) and wraps them into a complete Context. This helps the AI accurately understand the current situation to provide the most logical next storyline.
+* **Flexible JSON Processing and Display:** Overcame the risk of the AI rambling by forcing it to return standard JSON data. This data is then parsed by the system into components: Story Development, List of Actions (Choices), and Boss Information, and then visually displayed on the Unity Game interface.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+  ![AI Storyteller Interface in Game](/images/week4/ai_storyteller.png)
+  *(Note: Need to add a screenshot of the game displaying the story and choices here)*
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+  ```json
+  // Sample JSON structure generated by Amazon Bedrock - Illustration
+  {
+      "story": "You step into the dark cave...",
+      "choices": [
+          {"id": 1, "text": "Move forward"},
+          {"id": 2, "text": "Light a torch"}
+      ]
+  }
+  ```

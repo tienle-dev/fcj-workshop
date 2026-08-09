@@ -1,57 +1,37 @@
 ---
 title: "Week 3 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-07-06
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 3 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Design & Manipulate Game Database (DynamoDB / RDS).
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date |
+| --- | ---- | ---------- | --------------- |
+| Mon | - Survey and choose the database type (NoSQL vs SQL) suitable for game mechanics.<br>- Design table structures: Account (User) and Character (Character). | 07/06/2026 | 07/06/2026 |
+| Tue | - Design storage structures: Item (Inventory), Story Progress (StorySession), and Match (Battle). | 07/07/2026 | 07/07/2026 |
+| Wed | - Initialize DynamoDB (or RDS) tables on the AWS Console.<br>- Setup key structures (Primary Key, Partition Key) to optimize queries. | 07/08/2026 | 07/08/2026 |
+| Thu | - Configure Secondary Indexes (GSI) for DynamoDB tables to serve complex search features. | 07/09/2026 | 07/09/2026 |
+| Fri | - Write Repository classes in C# for the Backend.<br>- Perform CRUD (read/write) operations for real-time game state data. | 07/10/2026 | 07/11/2026 |
 
 ### Week 3 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Week 3 focused on shaping how to efficiently store and manage game data, ensuring fast retrieval speeds and easy scalability. I completed the following tasks:
 
-* Successfully created and configured an AWS Free Tier account.
+* **Comprehensive Database Structure Design:** Analyzed and designed the data model for the entire game, including Player Account (User) information, Character (Character) states, Inventory (Inventory), Story Progress history (StorySession), and Match logs (Battle).
+* **DynamoDB / RDS Initialization & Optimization:** Created tables in the actual AWS environment. Carefully configured Primary Keys, Partition Keys, and Global Secondary Indexes (GSIs) to optimize read/write capacity units, thereby saving costs and speeding up queries.
+* **C# Repository Construction:** Completed the Data Access layer in the Backend architecture by writing Repository classes in C#. These functions safely handle continuous read/write operations of the game state (e.g., saving experience points, adding items to the inventory).
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+  ![Database Schema or DynamoDB Tables](/images/week3/database_schema.png)
+  *(Note: Need to add database design schema or DynamoDB interface image here)*
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+  ```csharp
+  // Repository class structure for Database manipulation - Illustration
+  ```
+  *(Note: Insert a typical C# Repository code snippet here)*

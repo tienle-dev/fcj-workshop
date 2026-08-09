@@ -1,59 +1,33 @@
 ---
 title: "Worklog Tuần 1"
-date: 2024-01-01
+date: 2026-06-22
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 1:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Khởi tạo môi trường AWS & Bảo mật hạ tầng cơ bản cho dự án game.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
+| --- | --------- | ------------ | --------------- |
+| 2 | - Bật xác thực đa yếu tố (MFA) cho tài khoản Root AWS.<br>- Thiết lập người dùng và phân quyền IAM theo chuẩn Least Privilege cho Developer. | 22/06/2026 | 22/06/2026 |
+| 3 | - Tìm hiểu và khởi tạo Amazon S3 Bucket.<br>- Cấu hình quyền truy cập và chính sách CORS cho S3. | 23/06/2026 | 23/06/2026 |
+| 4 | - Tải lên S3 các tài nguyên Game ban đầu: hình ảnh UI, sprite nhân vật, vũ khí và file cấu hình (JSON). | 24/06/2026 | 24/06/2026 |
+| 5 | - Thiết kế kiến trúc mạng cơ bản: Tạo VPC, thiết lập Public/Private Subnet. | 25/06/2026 | 25/06/2026 |
+| 6 | - Cấu hình Security Group bảo mật các luồng truy cập.<br>- Khởi tạo máy chủ ảo EC2 và kiểm tra kết nối SSH/RDP an toàn. | 26/06/2026 | 27/06/2026 |
 
 ### Kết quả đạt được tuần 1:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Trong tuần đầu tiên, tôi đã hoàn thành việc thiết lập nền tảng AWS cơ bản và đảm bảo các tiêu chuẩn bảo mật cho dự án:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* **Bảo mật tài khoản:** Kích hoạt thành công MFA cho tài khoản Root để ngăn ngừa truy cập trái phép. Đã tạo nhóm người dùng (IAM Group) và cấp quyền tối thiểu (Least Privilege) cho các vai trò phát triển (Developer), giúp an toàn hóa quá trình thao tác trên AWS.
+* **Lưu trữ tài nguyên (S3):** Khởi tạo thành công S3 Bucket để lưu trữ tập trung toàn bộ tài nguyên (Asset) của game như ảnh UI, sprite nhân vật/vũ khí. Việc này giúp game Unity dễ dàng lấy dữ liệu thông qua URL mà không cần đóng gói trực tiếp vào game build, làm giảm dung lượng ứng dụng.
+  
+  ![Cấu trúc S3 Bucket lưu trữ tài nguyên](/images/week1/s3_bucket.png)
+  *(Ghi chú: Cần bổ sung hình ảnh S3 Bucket tại đây)*
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* **Hạ tầng mạng (VPC & EC2):** Đã thiết lập xong VPC dành riêng cho môi trường game, bao gồm các Subnet và Security Group quản lý cổng truy cập chặt chẽ. Khởi tạo một máy chủ EC2 thử nghiệm và thực hiện kết nối SSH an toàn thành công, chuẩn bị sẵn sàng cho các thiết lập backend phức tạp ở các tuần sau.

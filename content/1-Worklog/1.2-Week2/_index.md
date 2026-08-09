@@ -1,57 +1,37 @@
 ---
 title: "Week 2 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-29
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 2 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Integrate User Authentication services (Amazon Cognito) into the game project.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date |
+| --- | ---- | ---------- | --------------- |
+| Mon | - Research Amazon Cognito service.<br>- Initialize Cognito User Pool & App Client for the game. | 06/29/2026 | 06/29/2026 |
+| Tue | - Configure required user attributes (Email, Username).<br>- Develop Registration (Register) and OTP Verification (ConfirmSignUp) APIs. | 06/30/2026 | 06/30/2026 |
+| Wed | - Develop Login API and handle Token Refresh (RefreshToken).<br>- Test APIs using Postman. | 07/01/2026 | 07/01/2026 |
+| Thu | - Integrate the authentication flow into the C# Backend.<br>- Program JWT token management (IdToken, AccessToken, RefreshToken). | 07/02/2026 | 07/02/2026 |
+| Fri | - Connect the authentication flow between Unity Frontend and Backend.<br>- Design a basic Login/Register UI in Unity. | 07/03/2026 | 07/03/2026 |
 
 ### Week 2 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+This week, the focus was on building a secure login and registration system for players using Amazon Cognito. The specific results are as follows:
 
-* Successfully created and configured an AWS Free Tier account.
+* **Cognito User Pool Initialization:** Successfully configured a dedicated User Pool and App Client for the game. Set up strong password policies and email OTP verification requirements for new account registrations.
+* **Authentication API Development:** Completed the programming and testing of the entire basic authentication API flow, including: Register, Login, ConfirmSignUp, and RefreshToken. The APIs work smoothly and return valid tokens.
+* **Frontend Unity & Backend C# Integration:** Successfully connected the JWT token processing flow between the server and the client. The Unity game can now send login requests, receive JWT tokens, and store them securely to maintain login sessions for subsequent in-game operations. The basic login UI has also been constructed.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+  ![Unity Login UI](/images/week2/unity_login.png)
+  *(Note: Need to add Unity game login UI image here)*
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+  ```csharp
+  // JWT Token Processing Structure - Illustration
+  ```
+  *(Note: Insert a C# Login code snippet here if available)*

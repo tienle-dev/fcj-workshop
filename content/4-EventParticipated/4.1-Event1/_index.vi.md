@@ -130,6 +130,6 @@ Tham gia buổi **AWS First Cloud Journey AI Meetup** đã mang lại cho tôi n
 - **Môi trường giao lưu cởi mở:** Workshop tạo không gian tuyệt vời để tôi kết nối với các đàn anh đi trước và nhận những phần quà ý nghĩa từ ban tổ chức.
 
 #### Một số hình ảnh khi tham gia sự kiện
-*Thêm các hình ảnh của các bạn tại đây*
+![Event photo 1](hinh-anh-sk-1/IMG_20260613_093319.webp)
 
 > Tổng thể, sự kiện không chỉ trang bị cho tôi kiến thức kỹ thuật về AWS mà còn giúp tôi định hình lại tư duy làm nghề, sự phối hợp giữa kinh doanh - công nghệ, và trách nhiệm phát triển cộng đồng công nghệ số Việt Nam.

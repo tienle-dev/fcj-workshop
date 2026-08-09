@@ -130,6 +130,6 @@ Attending the **AWS First Cloud Journey AI Meetup** was an extremely rewarding e
 - **Networking Opportunities:** Interacting with senior leads, DevOps engineers, and fellow cloud enthusiasts helped build connections that will support my ongoing learning journey.
 
 #### Some event photos
-*Add your event photos here*
+![Event photo 1](hinh-anh-sk-1/IMG_20260613_093319.webp)
 
 > The event successfully combined deep technical concepts with critical soft skills and career growth advice, reshaping my approach to building software, managing systems, and engaging with the developer community.

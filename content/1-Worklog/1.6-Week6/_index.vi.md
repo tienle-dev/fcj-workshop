@@ -1,58 +1,37 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-07-27
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tự động hóa hạ tầng đám mây (Infrastructure as Code - AWS CDK).
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
+| --- | --------- | ------------ | --------------- |
+| 2 | - Tìm hiểu về khái niệm Infrastructure as Code (IaC) và công cụ AWS CDK.<br>- Khởi tạo project CDK bằng ngôn ngữ C#. | 27/07/2026 | 27/07/2026 |
+| 3 | - Viết mã nguồn định nghĩa CognitoStack (User Pool, App Client) và DatabaseStack (DynamoDB). | 28/07/2026 | 28/07/2026 |
+| 4 | - Viết mã nguồn định nghĩa LambdaStack (các hàm xử lý) và ApiStack (API Gateway). | 29/07/2026 | 29/07/2026 |
+| 5 | - Cấu hình quy trình CI/CD sử dụng GitHub Actions.<br>- Tự động hóa việc Build Docker Image và Deploy hạ tầng trực tiếp từ kho mã nguồn GitHub. | 30/07/2026 | 30/07/2026 |
+| 6 | - Thực hành chạy các lệnh CDK CLI (`cdk synth`, `cdk deploy`, `cdk destroy`).<br>- Đánh giá tính linh hoạt trong việc quản lý tài nguyên. | 31/07/2026 | 01/08/2026 |
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+Thay vì cấu hình thủ công từng dịch vụ trên giao diện web AWS (Console), tuần này tôi đã áp dụng phương pháp Infrastructure as Code (IaC) bằng AWS Cloud Development Kit (CDK) để tự động hóa hoàn toàn quy trình triển khai:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* **Viết hạ tầng bằng Code C#:** Tôi đã sử dụng chính ngôn ngữ C# quen thuộc để lập trình ra các lớp (Stack) định nghĩa toàn bộ hệ thống, bao gồm: CognitoStack, DatabaseStack, LambdaStack và ApiStack. Việc code hóa hạ tầng giúp tôi quản lý phiên bản (version control) dễ dàng và tránh các sai sót khi cấu hình bằng tay.
+* **Tích hợp CI/CD với GitHub Actions:** Đã thiết lập thành công đường ống CI/CD. Giờ đây, mỗi khi có thay đổi code được đẩy lên nhánh chính của kho mã nguồn GitHub, hệ thống tự động build Docker image và kích hoạt lệnh deploy AWS CDK để cập nhật hạ tầng mà không cần can thiệp thủ công.
+* **Quản lý tài nguyên linh hoạt:** Nắm vững việc sử dụng các lệnh CDK CLI. Nhờ vậy, tôi có thể tạo ra một bản sao toàn bộ hệ thống (deploy) chỉ trong vài phút, và gỡ bỏ hoàn toàn (destroy) một cách an toàn khi không còn sử dụng, giúp tối ưu hóa chi phí.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+  ![Giao diện GitHub Actions CI/CD](/images/week6/github_actions.png)
+  *(Ghi chú: Cần bổ sung ảnh chụp màn hình luồng chạy GitHub Actions thành công tại đây)*
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+  ```csharp
+  // Ví dụ đoạn code định nghĩa LambdaStack bằng AWS CDK C#
+  ```
+  *(Ghi chú: Cần chèn một đoạn code CDK C# minh họa)*

@@ -6,17 +6,15 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
 
-###  [Blog 1 - SESSION POLICIES IN AMAZON EKS POD IDENTITY](3.1-Blog1/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+This section will list and introduce the blogs I have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj).
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+###  [Blog 1 - Dev Corner: 5 Lessons Learned from Building a 2D Game with AWS Serverless & GenAI](3.1-Blog1/)
+Lately, my team has been focusing on developing a 2D RPG game integrated with Generative AI (an AI Dungeon RPG) to automatically drive the storyline.
+
+###  [Blog 2 - Dev Corner: Learning AWS through an AI-integrated 2D game project](3.2-Blog2/)
+When starting a 2D RPG game that interacts with AI using a Serverless architecture, seeing the AI reply smoothly in-game feels amazing.
 
 ###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+(Upcoming blog post)

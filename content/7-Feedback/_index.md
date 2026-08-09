@@ -6,42 +6,36 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
+>Here, I would like to share my honest personal opinions and experiences after participating in the First Cloud AI Journey (FCAJ) program. I hope this feedback helps the FCAJ team continue to improve.
 
 ### Overall Evaluation
 
 **1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+To be honest, this was my first time working on the AWS platform, so I lacked experience and faced quite a few challenges when I started exploring it. However, the FCAJ environment is incredibly dynamic and open. Teamwork and communication were very smooth; everyone was ready to share documentation and valuable Cloud experiences to help each other overcome initial hurdles.
 
 **2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+The admin team made great efforts to provide practical feedback to improve the architectural design of our project. In addition, the organizers enthusiastically answered questions regarding internship processes and project submission guidelines. I especially appreciated that they hosted weekend workshops and events to share knowledge about AWS Cloud, which gave us the opportunity to learn more and apply it directly to our project.
 
 **3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+Applying the programming knowledge learned in university to a project is one thing, but deploying a system environment that ensures a stable user experience is a completely different challenge. Through this project, I realized that the trend of moving systems to the Cloud—rather than deploying on-premise at a higher cost—is an excellent choice for businesses. Of course, for small projects, self-deployment might be preferred, but for large-scale environments, having a stable, easily deployable, and long-lasting system brings a completely different value compared to doing everything from scratch yourself.
 
 **4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+The program provided a valuable opportunity to learn hands-on deployment on the AWS ecosystem. At the same time, the project helped me practice game development in Unity and, more importantly, taught me how to effectively integrate a Backend into Unity.
 
 **5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+During the project, it was inevitable that the team would encounter roadblocks, but we worked together to figure out the root causes and offer ideas to solve the problems. This team spirit kept the work atmosphere highly positive and productive.
 
 **6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+I highly value being provided with a sandbox AWS environment to freely experiment and test services like Bedrock and API Gateway without worrying about personal cost risks.
 
 ---
 
 ### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
 
----
-
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+*   **What did you find most satisfying during your internship?**  
+    The most memorable moment was successfully connecting the Unity Client to the AWS Backend and watching the AI automatically generate a logical, seamless storyline based on the player's choices in the game.
+*   **What do you think the company should improve for future interns?**  
+    Technically, I noticed that the AI struggles to remember the storyline session as the story gets longer, which is a limitation that needs a workaround (e.g., using Vector DBs for context). Additionally, the game's UI needs optimization, and background music should be added to improve the immersive experience.
+    Regarding the FCAJ program, I hope the organizers provide more diverse case studies from seniors to give interns a broader practical perspective.
+*   **If recommending to a friend, would you suggest they intern here? Why or why not?**  
+    Definitely. Especially for those who want to learn some basic Cloud services and learn how to actually apply them to real-world projects. This is a fantastic stepping stone to get acquainted with the Cloud and AI ecosystem.
