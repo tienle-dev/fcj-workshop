@@ -16,5 +16,5 @@ Lately, my team has been focusing on developing a 2D RPG game integrated with Ge
 ###  [Blog 2 - Dev Corner: Learning AWS through an AI-integrated 2D game project](3.2-Blog2/)
 When starting a 2D RPG game that interacts with AI using a Serverless architecture, seeing the AI reply smoothly in-game feels amazing.
 
-###  [Blog 3 - ...](3.3-Blog3/)
-(Upcoming blog post)
+###  [Blog 3 - Dev Corner: Learning AWS through a Game Project - Optimizing Costs and Preventing Cheats](3.3-Blog3/)
+Lately, our team has been actively developing a 2D RPG game integrated with Generative AI. The core mechanic of the game is that the AI automatically generates the storyline, while players can freely type any action they want their character to perform.

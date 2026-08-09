@@ -16,5 +16,5 @@ Dạo này team mình đang tập trung phát triển một dự án game nhập
 ###  [Blog 2 - Góc dev: Học AWS qua một dự án game 2D tích hợp AI](3.2-Blog2/)
 Khi bắt tay vào làm một game nhập vai 2D tương tác với AI bằng kiến trúc Serverless, cứ thấy AI trả lời mượt trong game là sướng rồi.
 
-###  [Blog 3 - ...](3.3-Blog3/)
-(Bài viết sắp tới)
+###  [Blog 3 - Góc dev: Học AWS qua dự án Game: Bài toán tối ưu chi phí và chống gian lận](3.3-Blog3/)
+Dạo này team mình đang tiếp tục hoàn thiện dự án Game nhập vai 2D kết hợp Generative AI. Cơ chế chính của game là: AI tự sinh ra diễn biến cốt truyện, còn người chơi sẽ gõ hành động tự do mà họ muốn nhân vật thực hiện.
