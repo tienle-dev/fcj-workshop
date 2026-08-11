@@ -28,5 +28,5 @@ Tuần cuối cùng là lúc để hoàn thiện, đánh giá lại toàn bộ t
 * **Đánh giá AWS Well-Architected:** Đối chiếu hệ thống với các tiêu chuẩn tốt nhất của AWS. Hệ thống đạt mức tốt về Bảo mật (nhờ IAM, Cognito, Secrets Manager), Ổn định (nhờ kiến trúc Serverless Lambda không lo sập server) và Hiệu suất (nhờ API Gateway và DynamoDB).
 * **Hoàn thiện Bàn giao:** Đã hoàn thành đóng gói mã nguồn và hoàn tất bài Báo cáo thực tập. Toàn bộ repo được viết kèm tài liệu README hướng dẫn các bước deploy lại hạ tầng CDK từ đầu, giúp dự án có thể dễ dàng chuyển giao hoặc mở rộng trong tương lai.
 
-  ![Trải nghiệm Game Hoàn thiện](/images/week8/gameplay_final.png)
-  *(Ghi chú: Cần bổ sung ảnh chụp màn hình gameplay hoàn thiện tại đây)*
+  ![Trải nghiệm Game Hoàn thiện](../../../images/1-Worklog/1.8-Week8/game.png)
+  *Trải nghiệm Game Hoàn thiện*

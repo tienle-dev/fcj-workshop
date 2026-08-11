@@ -6,28 +6,29 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Triển khai hệ thống Game RPG tương tác cốt truyện bằng AI (Serverless AWS)
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Trong workshop này, chúng ta sẽ xây dựng hệ thống Backend Serverless toàn diện trên đám mây **AWS** cho một tựa game nhập vai phiêu lưu (RPG) 2D. Điểm đặc biệt của dự án là việc ứng dụng Trí tuệ nhân tạo (Generative AI) từ **Amazon Bedrock** làm hệ thống dẫn chuyện (AI Dungeon Master), giúp tạo ra những tình huống và cốt truyện hoàn toàn độc nhất theo từng quyết định của người chơi.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Thay vì quản lý máy chủ truyền thống, toàn bộ kiến trúc (Backend) sẽ sử dụng mô hình **Serverless** (Không máy chủ) giúp hệ thống tự động mở rộng theo lưu lượng thực tế và tối ưu hóa chi phí.
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+#### Mục tiêu của Workshop
+
+Sau khi hoàn thành workshop này, bạn sẽ nắm vững cách:
+- Triển khai và quản lý luồng định danh người dùng an toàn với **Amazon Cognito**.
+- Thiết kế cơ sở dữ liệu tốc độ cao (NoSQL) quản lý thông tin nhân vật và túi đồ bằng **Amazon DynamoDB**.
+- Xây dựng các hàm tính toán logic game (Giao tranh, Rơi đồ) bằng **AWS Lambda** và phơi bày qua **Amazon API Gateway**.
+- Viết kịch bản Prompt Engineering và gọi mô hình ngôn ngữ lớn (LLM) qua **Amazon Bedrock** để tự động sinh cốt truyện.
+- Dùng **AWS CDK** để tự động hóa hạ tầng bằng mã nguồn (IaC).
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Tổng quan về workshop và Kiến trúc](5.1-Workshop-overview/)
+2. [Chuẩn bị môi trường](5.2-Prerequisites/)
+3. [Triển khai hệ thống Xác thực (Cognito)](5.3-Authentication/)
+4. [Xây dựng Game Logic (DynamoDB & Lambda)](5.4-Game-Backend/)
+5. [Tích hợp AI Dẫn chuyện (Bedrock)](5.5-AI-Story-Engine/)
+6. [Kết nối với Unity 2D Client](5.6-Client-Integration/)
+7. [Dọn dẹp tài nguyên](5.7-Cleanup/)

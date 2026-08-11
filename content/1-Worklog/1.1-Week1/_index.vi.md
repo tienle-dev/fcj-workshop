@@ -17,17 +17,17 @@ pre: " <b> 1.1. </b> "
 | 2 | - Bật xác thực đa yếu tố (MFA) cho tài khoản Root AWS.<br>- Thiết lập người dùng và phân quyền IAM theo chuẩn Least Privilege cho Developer. | 22/06/2026 | 22/06/2026 |
 | 3 | - Tìm hiểu và khởi tạo Amazon S3 Bucket.<br>- Cấu hình quyền truy cập và chính sách CORS cho S3. | 23/06/2026 | 23/06/2026 |
 | 4 | - Tải lên S3 các tài nguyên Game ban đầu: hình ảnh UI, sprite nhân vật, vũ khí và file cấu hình (JSON). | 24/06/2026 | 24/06/2026 |
-| 5 | - Thiết kế kiến trúc mạng cơ bản: Tạo VPC, thiết lập Public/Private Subnet. | 25/06/2026 | 25/06/2026 |
-| 6 | - Cấu hình Security Group bảo mật các luồng truy cập.<br>- Khởi tạo máy chủ ảo EC2 và kiểm tra kết nối SSH/RDP an toàn. | 26/06/2026 | 27/06/2026 |
+| 5 | - Tìm hiểu các khái niệm cơ bản về Serverless Architecture (Lambda, API Gateway, DynamoDB). | 25/06/2026 | 25/06/2026 |
+| 6 | - Cài đặt AWS CLI, cấu hình profile và làm quen cơ bản với AWS Cloud Development Kit (CDK).<br>- Tạo một ứng dụng Hello World đơn giản để test môi trường. | 26/06/2026 | 27/06/2026 |
 
 ### Kết quả đạt được tuần 1:
 
 Trong tuần đầu tiên, tôi đã hoàn thành việc thiết lập nền tảng AWS cơ bản và đảm bảo các tiêu chuẩn bảo mật cho dự án:
 
-* **Bảo mật tài khoản:** Kích hoạt thành công MFA cho tài khoản Root để ngăn ngừa truy cập trái phép. Đã tạo nhóm người dùng (IAM Group) và cấp quyền tối thiểu (Least Privilege) cho các vai trò phát triển (Developer), giúp an toàn hóa quá trình thao tác trên AWS.
+* **Bảo mật tài khoản:** Kích hoạt thành công MFA cho tài khoản Root để ngăn ngừa truy cập trái phép. Tạo tài khoản IAM (IAM User) và cấp quyền truy cập Permissions policies vào các dịch vụ cần thiết, giúp an toàn hóa quá trình thao tác trên AWS.
 * **Lưu trữ tài nguyên (S3):** Khởi tạo thành công S3 Bucket để lưu trữ tập trung toàn bộ tài nguyên (Asset) của game như ảnh UI, sprite nhân vật/vũ khí. Việc này giúp game Unity dễ dàng lấy dữ liệu thông qua URL mà không cần đóng gói trực tiếp vào game build, làm giảm dung lượng ứng dụng.
   
-  ![Cấu trúc S3 Bucket lưu trữ tài nguyên](/images/week1/s3_bucket.png)
-  *(Ghi chú: Cần bổ sung hình ảnh S3 Bucket tại đây)*
+  ![Cấu trúc S3 Bucket lưu trữ tài nguyên](../../../images/1-Worklog/1.1-Week1/s3-bucket.png)
+  *Cấu trúc S3 Bucket lưu trữ tài nguyên*
 
-* **Hạ tầng mạng (VPC & EC2):** Đã thiết lập xong VPC dành riêng cho môi trường game, bao gồm các Subnet và Security Group quản lý cổng truy cập chặt chẽ. Khởi tạo một máy chủ EC2 thử nghiệm và thực hiện kết nối SSH an toàn thành công, chuẩn bị sẵn sàng cho các thiết lập backend phức tạp ở các tuần sau.
+* **Cài đặt môi trường & Tìm hiểu Serverless:** Đã cài đặt thành công AWS CLI và khởi tạo môi trường lập trình. Dành thời gian nghiên cứu các khái niệm cốt lõi của kiến trúc Serverless (phi máy chủ) và AWS CDK, chuẩn bị nền tảng vững chắc cho việc viết code triển khai hạ tầng ở các tuần sau.

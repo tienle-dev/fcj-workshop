@@ -17,21 +17,30 @@ pre: " <b> 1.6. </b> "
 | Mon | - Learn about the concept of Infrastructure as Code (IaC) and the AWS CDK tool.<br>- Initialize a CDK project using C#. | 07/27/2026 | 07/27/2026 |
 | Tue | - Write source code defining CognitoStack (User Pool, App Client) and DatabaseStack (DynamoDB). | 07/28/2026 | 07/28/2026 |
 | Wed | - Write source code defining LambdaStack (handler functions) and ApiStack (API Gateway). | 07/29/2026 | 07/29/2026 |
-| Thu | - Configure the CI/CD pipeline using GitHub Actions.<br>- Automate building Docker Images and deploying infrastructure directly from the GitHub repository. | 07/30/2026 | 07/30/2026 |
+| Thu | - Add C# code to define Storage (S3) and Monitoring (CloudWatch).<br>- Experiment with splitting the infrastructure code into multiple files (Stacks) to keep it organized. | 07/30/2026 | 07/30/2026 |
 | Fri | - Practice running CDK CLI commands (`cdk synth`, `cdk deploy`, `cdk destroy`).<br>- Evaluate flexibility in resource management. | 07/31/2026 | 08/01/2026 |
 
 ### Week 6 Achievements:
 
-Instead of manually configuring each service on the AWS web interface (Console), this week I applied the Infrastructure as Code (IaC) methodology using the AWS Cloud Development Kit (CDK) to fully automate the deployment process:
+This week, I started getting familiar with the concept of "Infrastructure as Code" (IaC) through the AWS CDK tool. Instead of manually creating each resource on the AWS website, I used code to automate this process:
 
-* **Writing Infrastructure in C# Code:** I used the familiar C# language to program the Stacks that define the entire system, including: CognitoStack, DatabaseStack, LambdaStack, and ApiStack. Coding the infrastructure helps me easily manage versions (version control) and avoid errors caused by manual configuration.
-* **CI/CD Integration with GitHub Actions:** Successfully set up the CI/CD pipeline. Now, whenever code changes are pushed to the main branch of the GitHub repository, the system automatically builds the Docker image and triggers the AWS CDK deploy command to update the infrastructure without manual intervention.
+* **Using C# code to create AWS infrastructure:** Instead of clicking around the AWS console to create every DynamoDB table or Lambda function, I learned how to use C# (a language I already know well from Unity) to define the infrastructure. Writing it in code helps me avoid mistakes and prevents me from forgetting configuration steps if I accidentally misclick on the web interface.
+* **Learning to organize infrastructure code:** Initially, I tried writing everything in one big file, but it got too long and messy. So, I learned how to split it into smaller modules (called Stacks) like Database, API, and Lambda. Even though it was a bit confusing at first to figure out how to pass data between these files, once I got used to it, the code became much cleaner and easier to debug.
 * **Flexible Resource Management:** Mastered the use of CDK CLI commands. As a result, I can spin up a complete copy of the entire system (deploy) in just a few minutes, and completely tear it down (destroy) safely when no longer needed, optimizing costs.
 
-  ![GitHub Actions CI/CD Interface](/images/week6/github_actions.png)
-  *(Note: Need to add a screenshot of a successful GitHub Actions run here)*
+  ![cdk deploy terminal interface](../../../images/1-Worklog/1.6-Week6/cdk-deploy.png)
+  *cdk deploy terminal interface*
 
   ```csharp
-  // Example code snippet defining LambdaStack using AWS CDK C#
+  // Code declaring User Pool in CognitoStack.cs
+  public CognitoStack(Construct scope, string id, IStackProps? props = null) : base(scope, id, props)
+  {
+      UserPool = new UserPool(this, "GameUserPool", new UserPoolProps
+      {
+          UserPoolName = "RPG-Game-User-Pool",
+          SelfSignUpEnabled = true,
+          AutoVerify = new AutoVerifiedAttrs { Email = true },
+          PasswordPolicy = new PasswordPolicy { MinLength = 8, RequireDigits = true }
+      });
+  }
   ```
-  *(Note: Insert an illustrative C# CDK code snippet here)*

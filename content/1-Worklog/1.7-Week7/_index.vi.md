@@ -14,19 +14,20 @@ pre: " <b> 1.7. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
 | --- | --------- | ------------ | --------------- |
-| 2 | - Rà soát lại toàn bộ mã nguồn Backend để loại bỏ các chuỗi kết nối (connection string) bị hardcode.<br>- Cấu hình lưu trữ khóa bí mật trên AWS Secrets Manager. | 03/08/2026 | 03/08/2026 |
-| 3 | - Tích hợp Backend để gọi và giải mã chuỗi kết nối từ Secrets Manager khi runtime. | 04/08/2026 | 04/08/2026 |
-| 4 | - Thiết lập Amazon CloudWatch, tạo Dashboard giám sát hệ thống.<br>- Đưa các metric quan trọng lên Dashboard: Độ trễ API Gateway, số lượng Lambda invocation. | 05/08/2026 | 05/08/2026 |
-| 5 | - Theo dõi và thiết lập cảnh báo (Alarm) cho chi phí sử dụng API Amazon Bedrock. | 06/08/2026 | 06/08/2026 |
-| 6 | - Dùng AWS Cost Explorer rà soát lại tài nguyên toàn hệ thống.<br>- Tiến hành dọn dẹp tài nguyên rác (Orphaned EBS, Elastic IP không dùng) giúp tối ưu chi phí sử dụng AWS. | 07/08/2026 | 08/08/2026 |
+| 2 | - Rà soát lại code Backend, đưa các thông tin cấu hình nhạy cảm ra khỏi source code.<br>- Dùng biến môi trường (Environment Variables) cho các hàm Lambda. | 03/08/2026 | 03/08/2026 |
+| 3 | - Kiểm tra lại quyền IAM Role của các Lambda để đảm bảo việc kết nối tới DynamoDB và Bedrock diễn ra an toàn. | 04/08/2026 | 04/08/2026 |
+| 4 | - Dùng CloudWatch tạo Dashboard (RPG-Game-Backend) để tiện theo dõi các chỉ số quan trọng của hệ thống. | 05/08/2026 | 05/08/2026 |
+| 5 | - Cài đặt tính năng cảnh báo tự động (Alarm) gửi thông báo nếu các hàm Lambda bị lỗi quá nhiều. | 06/08/2026 | 06/08/2026 |
+| 6 | - Vào AWS Cost Explorer kiểm tra lại chi phí.<br>- Dọn dẹp bớt các tài nguyên dư thừa (Snapshot cũ...) để tiết kiệm tiền. | 07/08/2026 | 08/08/2026 |
 
 ### Kết quả đạt được tuần 7:
 
 Sau khi hệ thống cơ bản hoàn thiện, tôi dành riêng tuần này để đảm bảo game vận hành không chỉ trơn tru mà còn an toàn và tiết kiệm:
 
-* **Bảo mật với AWS Secrets Manager:** Đã loại bỏ hoàn toàn rủi ro lộ lọt thông tin nhạy cảm. Toàn bộ chuỗi kết nối Database và khóa API Bedrock được chuyển sang lưu trữ mã hóa an toàn trên AWS Secrets Manager. Các hàm Lambda chỉ gọi lấy khóa khi đang chạy, đảm bảo mã nguồn (đẩy lên GitHub) hoàn toàn sạch.
-* **Giám sát trực quan với CloudWatch:** Đã xây dựng thành công một Dashboard tổng quan trên Amazon CloudWatch. Từ đây, tôi có thể theo dõi "sức khỏe" hệ thống theo thời gian thực như: tốc độ phản hồi (latency) của API Gateway, tần suất gọi hàm Lambda (invocation) hay phát hiện các lỗi (error rate) một cách nhanh chóng.
-* **Tối ưu hóa chi phí vận hành:** Sử dụng AWS Cost Explorer để phân tích biểu đồ chi phí. Thông qua đó, tôi đã phát hiện và dọn dẹp các tài nguyên bị "bỏ quên" (như EBS snapshot cũ, các Elastic IP không đính kèm) cũng như giới hạn lại ngân sách (budget) để ngăn ngừa hóa đơn phát sinh đột biến từ API AI.
+* **Bảo mật và cấu hình:** Thay vì gõ trực tiếp thông tin nhạy cảm vào code, tôi đã chuyển sang dùng Biến môi trường (Environment Variables) cho Lambda. Việc kết nối tới Database (DynamoDB) và AI (Bedrock) cũng được phân quyền bằng IAM Role, giúp code đưa lên GitHub an toàn và gọn gàng hơn.
+* **Giám sát hệ thống với CloudWatch:** Tôi đã tạo một Dashboard trên CloudWatch có tên `RPG-Game-Backend` để dễ dàng theo dõi tình trạng của game. Đặc biệt, tôi có cài thêm tính năng Alarm để tự động báo động mỗi khi các hàm Lambda xử lý logic gặp lỗi, giúp việc sửa lỗi sau này nhanh chóng hơn.
+* **Tối ưu chi phí:** Dành thời gian xem lại biểu đồ chi phí trên AWS Cost Explorer để xóa đi các tài nguyên chạy ngầm không sử dụng, tránh mất tiền oan khi vận hành.
 
-  ![CloudWatch Dashboard Giám sát Hệ thống](/images/week7/cloudwatch_dashboard.png)
-  *(Ghi chú: Cần bổ sung ảnh chụp màn hình CloudWatch Dashboard tại đây)*
+  ![CloudWatch Monitoring Dashboard1](../../../images/1-Worklog/1.7-Week7/bedrock-cloudwatch.png)
+  ![CloudWatch Monitoring Dashboard2](../../../images/1-Worklog/1.7-Week7/lambda-cloudwatch.png)
+  *CloudWatch Monitoring Dashboard*

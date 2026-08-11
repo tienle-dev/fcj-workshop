@@ -28,5 +28,5 @@ The final week is the time to finalize and re-evaluate all the accomplishments o
 * **AWS Well-Architected Evaluation:** Benchmarked the system against AWS best practices. The system achieved a good level of Security (thanks to IAM, Cognito, Secrets Manager), Reliability (thanks to the Serverless Lambda architecture without worrying about server crashes), and Performance Efficiency (thanks to API Gateway and DynamoDB).
 * **Completed Handover:** Finished packaging the source code and completed the Internship Report. The entire repository is well-documented with a README guiding the steps to redeploy the CDK infrastructure from scratch, making the project easy to hand over or expand in the future.
 
-  ![Completed Gameplay Experience](/images/week8/gameplay_final.png)
-  *(Note: Need to add a screenshot of the completed gameplay here)*
+  ![Completed Gameplay Experience](../../../images/1-Worklog/1.8-Week8/game.png)
+  *Completed Gameplay Experience*

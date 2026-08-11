@@ -14,19 +14,20 @@ pre: " <b> 1.7. </b> "
 
 | Day | Task | Start Date | Completion Date |
 | --- | ---- | ---------- | --------------- |
-| Mon | - Review the entire Backend source code to remove hardcoded connection strings.<br>- Configure secret key storage on AWS Secrets Manager. | 08/03/2026 | 08/03/2026 |
-| Tue | - Integrate the Backend to call and decrypt connection strings from Secrets Manager at runtime. | 08/04/2026 | 08/04/2026 |
-| Wed | - Set up Amazon CloudWatch, create a system monitoring Dashboard.<br>- Push key metrics to the Dashboard: API Gateway latency, number of Lambda invocations. | 08/05/2026 | 08/05/2026 |
-| Thu | - Monitor and set up Alarms for Amazon Bedrock API usage costs. | 08/06/2026 | 08/06/2026 |
-| Fri | - Use AWS Cost Explorer to review system-wide resources.<br>- Perform cleanup of orphaned resources (unused EBS, Elastic IPs) to optimize AWS usage costs. | 08/07/2026 | 08/08/2026 |
+| Mon | - Review Backend code to remove sensitive configuration info from the source code.<br>- Use Environment Variables for Lambda functions. | 08/03/2026 | 08/03/2026 |
+| Tue | - Verify IAM Roles to ensure Lambda connects to DynamoDB and Bedrock securely. | 08/04/2026 | 08/04/2026 |
+| Wed | - Use CloudWatch to create a Dashboard (`RPG-Game-Backend`) for tracking key system metrics. | 08/05/2026 | 08/05/2026 |
+| Thu | - Set up automated Alarms to send notifications if Lambda functions encounter too many errors. | 08/06/2026 | 08/06/2026 |
+| Fri | - Check AWS Cost Explorer to review costs.<br>- Clean up unused resources (old Snapshots, etc.) to save money. | 08/07/2026 | 08/08/2026 |
 
 ### Week 7 Achievements:
 
 With the system basically complete, I dedicated this week to ensuring the game runs not only smoothly but also securely and cost-effectively:
 
-* **Security with AWS Secrets Manager:** Completely eliminated the risk of sensitive information leakage. All Database connection strings and Bedrock API keys were moved to secure encrypted storage on AWS Secrets Manager. Lambda functions only retrieve the keys at runtime, ensuring the source code (pushed to GitHub) is completely clean.
-* **Visual Monitoring with CloudWatch:** Successfully built an overview Dashboard on Amazon CloudWatch. From here, I can monitor system "health" in real-time, such as API Gateway latency, Lambda invocation frequency, or quickly detect error rates.
-* **Operational Cost Optimization:** Used AWS Cost Explorer to analyze cost charts. Through this, I detected and cleaned up "forgotten" resources (like old EBS snapshots, unattached Elastic IPs) and limited the budget to prevent unexpected bills from the AI API.
+* **Security & Configuration:** Instead of hardcoding sensitive information, I switched to using Environment Variables for Lambda. Connections to the Database (DynamoDB) and AI (Bedrock) are also secured via IAM Roles, keeping the code pushed to GitHub much safer and cleaner.
+* **System Monitoring with CloudWatch:** I created a Dashboard named `RPG-Game-Backend` on CloudWatch to easily monitor the game's status. I also added Alarms to automatically trigger alerts whenever the game logic Lambda functions fail, making future debugging much faster.
+* **Cost Optimization:** Spent time reviewing cost charts on AWS Cost Explorer to delete unused background resources, preventing unnecessary charges during operation.
 
-  ![CloudWatch Monitoring Dashboard](/images/week7/cloudwatch_dashboard.png)
-  *(Note: Need to add a screenshot of the CloudWatch Dashboard here)*
+  ![CloudWatch Monitoring Dashboard1](../../../images/1-Worklog/1.7-Week7/bedrock-cloudwatch.png)
+  ![CloudWatch Monitoring Dashboard2](../../../images/1-Worklog/1.7-Week7/lambda-cloudwatch.png)
+  *CloudWatch Monitoring Dashboard*

@@ -28,10 +28,28 @@ Tuần này, trọng tâm công việc là xây dựng hệ thống đăng nhậ
 * **Xây dựng API Xác thực:** Hoàn thành việc lập trình và kiểm thử toàn bộ luồng API xác thực cơ bản bao gồm: Register, Login, ConfirmSignUp, và RefreshToken. Các API hoạt động trơn tru và trả về token hợp lệ.
 * **Tích hợp Frontend Unity & Backend C#:** Đã kết nối thành công luồng xử lý JWT token giữa server và client. Game Unity giờ đây có thể gửi request đăng nhập, nhận JWT token và lưu trữ an toàn để duy trì phiên đăng nhập cho các thao tác ingame sau này. UI đăng nhập cơ bản cũng đã được dựng xong.
 
-  ![Giao diện đăng nhập trong Unity](/images/week2/unity_login.png)
-  *(Ghi chú: Cần bổ sung hình ảnh UI đăng nhập của game Unity tại đây)*
+  ![Giao diện đăng nhập trong Unity](../../../images/1-Worklog/1.2-Week2/login.png)
+  *Giao diện đăng nhập trong Unity*
+
+  ![cognito](../../../images/1-Worklog/1.2-Week2/cognito.png)
+  *Cấu hình Cognito*
 
   ```csharp
-  // Cấu trúc code xử lý JWT token - Minh họa
+  // Code trong file CognitoAuthService.cs, xử lý đăng nhập trong game
+  public async Task<LoginResponse> LoginAsync(LoginRequest request)
+  {
+      var authRequest = new InitiateAuthRequest
+      {
+          AuthFlow = AuthFlowType.USER_PASSWORD_AUTH,
+          ClientId = _clientId,
+          AuthParameters = new Dictionary<string, string>
+          {
+              { "USERNAME", request.username.Trim() },
+              { "PASSWORD", request.password }
+          }
+      };
+
+      var authResponse = await _cognitoClient.InitiateAuthAsync(authRequest);
+      // Xử lý và map dữ liệu user trả về cho Unity Client
+  }
   ```
-  *(Ghi chú: Cần chèn một đoạn mã C# Login nếu có)*

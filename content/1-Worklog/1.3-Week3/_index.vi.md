@@ -28,10 +28,22 @@ Tuần thứ 3 tập trung vào việc định hình cách lưu trữ và quản
 * **Khởi tạo và tối ưu DynamoDB / RDS:** Thực hiện tạo bảng trên môi trường AWS thực tế. Cấu hình kỹ lưỡng các Primary Key, Partition Key và Global Secondary Index (GSI) giúp tối ưu hóa số lượng read/write capacity units, từ đó tiết kiệm chi phí và tăng tốc độ query.
 * **Xây dựng Repository C#:** Đã hoàn thiện tầng Data Access trong kiến trúc Backend bằng cách viết các lớp Repository bằng ngôn ngữ C#. Các hàm này xử lý thao tác đọc/ghi liên tục trạng thái game một cách an toàn (ví dụ: lưu điểm kinh nghiệm, thêm vật phẩm vào kho).
 
-  ![Sơ đồ CSDL hoặc Bảng DynamoDB](/images/week3/database_schema.png)
-  *(Ghi chú: Cần bổ sung sơ đồ thiết kế cơ sở dữ liệu hoặc giao diện bảng DynamoDB tại đây)*
+  ![Dynamodb](../../../images/1-Worklog/1.3-Week3/dynamodb.png)
+  ![game-boss](../../../images/1-Worklog/1.3-Week3/game-boss-dynamodb.png)
+  *Giao diện DynamoDB*
+  
 
   ```csharp
-  // Cấu trúc class Repository thao tác với Database - Minh họa
+  // Code thực tế trong file UserRepository.cs
+  public async Task<User?> GetByUsernameAsync(string username)
+  {
+      if (string.IsNullOrWhiteSpace(username)) return null;
+
+      var filter = new ScanFilter();
+      filter.AddCondition("username", ScanOperator.Equal, username);
+      var search = Table.Scan(filter);
+      var docs = await search.GetNextSetAsync();
+      
+      return docs.Count > 0 ? JsonUtils.Deserialize<User>(docs[0].ToJson()) : null;
+  }
   ```
-  *(Ghi chú: Cần chèn một đoạn mã C# Repository điển hình)*

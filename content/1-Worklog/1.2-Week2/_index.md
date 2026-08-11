@@ -28,10 +28,28 @@ This week, the focus was on building a secure login and registration system for 
 * **Authentication API Development:** Completed the programming and testing of the entire basic authentication API flow, including: Register, Login, ConfirmSignUp, and RefreshToken. The APIs work smoothly and return valid tokens.
 * **Frontend Unity & Backend C# Integration:** Successfully connected the JWT token processing flow between the server and the client. The Unity game can now send login requests, receive JWT tokens, and store them securely to maintain login sessions for subsequent in-game operations. The basic login UI has also been constructed.
 
-  ![Unity Login UI](/images/week2/unity_login.png)
-  *(Note: Need to add Unity game login UI image here)*
+  ![Unity Login UI](../../../images/1-Worklog/1.2-Week2/login.png)
+  *Unity Login UI*
+
+  ![cognito](../../../images/1-Worklog/1.2-Week2/cognito.png)
+  *Cognito Configuration*
 
   ```csharp
-  // JWT Token Processing Structure - Illustration
+  // code from CognitoAuthService.cs, handles login in the game
+  public async Task<LoginResponse> LoginAsync(LoginRequest request)
+  {
+      var authRequest = new InitiateAuthRequest
+      {
+          AuthFlow = AuthFlowType.USER_PASSWORD_AUTH,
+          ClientId = _clientId,
+          AuthParameters = new Dictionary<string, string>
+          {
+              { "USERNAME", request.username.Trim() },
+              { "PASSWORD", request.password }
+          }
+      };
+
+      var authResponse = await _cognitoClient.InitiateAuthAsync(authRequest);
+      // Process and map user data to return to Unity Client
+  }
   ```
-  *(Note: Insert a C# Login code snippet here if available)*

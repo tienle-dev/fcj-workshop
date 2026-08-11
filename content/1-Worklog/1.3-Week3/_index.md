@@ -28,10 +28,21 @@ Week 3 focused on shaping how to efficiently store and manage game data, ensurin
 * **DynamoDB / RDS Initialization & Optimization:** Created tables in the actual AWS environment. Carefully configured Primary Keys, Partition Keys, and Global Secondary Indexes (GSIs) to optimize read/write capacity units, thereby saving costs and speeding up queries.
 * **C# Repository Construction:** Completed the Data Access layer in the Backend architecture by writing Repository classes in C#. These functions safely handle continuous read/write operations of the game state (e.g., saving experience points, adding items to the inventory).
 
-  ![Database Schema or DynamoDB Tables](/images/week3/database_schema.png)
-  *(Note: Need to add database design schema or DynamoDB interface image here)*
+  ![Database Schema or DynamoDB Tables](../../../images/1-Worklog/1.3-Week3/dynamodb.png)
+  ![game-boss](../../../images/1-Worklog/1.3-Week3/game-boss-dynamodb.png)
+  *DynamoDB Interface*
 
   ```csharp
-  // Repository class structure for Database manipulation - Illustration
+  // Actual code from UserRepository.cs
+  public async Task<User?> GetByUsernameAsync(string username)
+  {
+      if (string.IsNullOrWhiteSpace(username)) return null;
+
+      var filter = new ScanFilter();
+      filter.AddCondition("username", ScanOperator.Equal, username);
+      var search = Table.Scan(filter);
+      var docs = await search.GetNextSetAsync();
+      
+      return docs.Count > 0 ? JsonUtils.Deserialize<User>(docs[0].ToJson()) : null;
+  }
   ```
-  *(Note: Insert a typical C# Repository code snippet here)*
