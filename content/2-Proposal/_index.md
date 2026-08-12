@@ -28,7 +28,7 @@ The game allows players to create characters and embark on completely open-ended
 
 The project employs a 100% Serverless architecture on AWS, strictly separating the Game Client from the Cloud Backend to ensure security and performance.
 
-![AWS Architecture Diagram](images/aws-architect-project.png)
+![AWS Architecture Diagram](images/aws-architect.png)
 *(System Architecture Overview)*
 
 *   **Amazon API Gateway & Cognito:** Serves as the secure entry point, managing player authentication (Login/Register) and validating JWT Tokens for all incoming requests.

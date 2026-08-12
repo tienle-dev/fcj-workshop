@@ -28,7 +28,7 @@ Trò chơi cho phép người chơi tạo nhân vật và đắm chìm vào nh�
 
 Dự án sử dụng 100% kiến trúc Serverless trên nền tảng AWS, tách biệt hoàn toàn giữa Game Client và Backend để đảm bảo bảo mật và hiệu năng.
 
-![AWS Architecture Diagram](images/aws-architect-project.png)
+![AWS Architecture Diagram](images/aws-architect.png)
 *(Sơ đồ kiến trúc tổng thể của hệ thống)*
 
 *   **Amazon API Gateway & Cognito:** Xử lý xác thực người dùng (Login/Register) và cấp phát JWT Token. Mọi yêu cầu từ Game Client đều được xác thực nghiêm ngặt tại cổng này.
