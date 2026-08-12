@@ -43,7 +43,7 @@ GameStack.ApiGatewayUrl         = https://ne6hi09ope.execute-api.ap-southeast-1.
 
 Here's the full picture of what happens when a player logs in:
 
-![Cognito Flow](/images/cognito-flow.png)
+![Cognito Flow](../../../images/workshop/cognito-flow.png)
 
 ---
 
@@ -53,9 +53,9 @@ When you register a new account (`POST /auth/register`), Cognito creates the use
 
 By default, Cognito sends a **verification email** to the registered address. Once the user clicks the link (or enters the code), the account becomes `CONFIRMED` and login works.
 
-![Cognito Register](/images/cognito-register.png)
-![Cognito Verification](/images/cognito-verification.png)
-![Cognito Status](/images/cognito-status.png)
+![Cognito Register](../../../images/workshop/cognito-register.png)
+![Cognito Verification](../../../images/workshop/cognito-verification.png)
+![Cognito Status](../../../images/workshop/cognito-status.png)
 
 **For testing purposes**, you have two options to bypass this:
 
@@ -66,12 +66,12 @@ By default, Cognito sends a **verification email** to the registered address. On
 1. Open the [Amazon Cognito Console](https://console.aws.amazon.com/cognito/).
 2. Click on **User Pools** in the left sidebar.
 3. Select your User Pool (named `GameUserPool` or similar).
-![status0](/images/cognito-change-status-0.png)
+![status0](../../../images/workshop/cognito-change-status-0.png)
 4. Click the **Users** tab.
 5. Find the user you registered (search by username or email).
-![status1](/images/cognito-change-status-1.png)
+![status1](../../../images/workshop/cognito-change-status-1.png)
 6. Click the username to open the user detail page.
-![status2](/images/cognito-change-status-2.png)
+![status2](../../../images/workshop/cognito-change-status-2.png)
 7. Click **Actions** → **Confirm user**.
 
 The user's status changes from `UNCONFIRMED` to `CONFIRMED` and they can now log in.
@@ -116,7 +116,7 @@ The trigger Lambda simply sets `event.response.autoConfirmUser = true` and `even
 
 Cognito returns three tokens on successful login. Here's what each one does in this project:
 
-![token](/images/cognito-access-token.png)
+![token](../../../images/workshop/cognito-access-token.png)
 
 | Token | Lifespan | Used For |
 |---|---|---|
@@ -134,7 +134,7 @@ Once you have the CDK outputs, open Unity Editor:
 
 1. In the **Project** panel → `Assets/Resources/` → select `GameConfig.asset`
 
-![config](/images/unity_gameconfig_inspector.png)
+![config](../../../images/workshop/unity_gameconfig_inspector.png)
 
 2. In the **Inspector**, fill in:
 
@@ -164,7 +164,7 @@ Once you have the CDK outputs, open Unity Editor:
 
 ##### Why IAM Matters Here
 
-![iam](/images/iam.png)
+![iam](../../../images/workshop/iam.png)
 
 Cognito doesn't work in isolation — Lambda functions need IAM permissions to **call Cognito APIs** (login, register, confirm user, etc.). On top of that, your AWS account needs IAM permissions so that **CDK can create** the Cognito User Pool during deployment.
 
@@ -240,13 +240,13 @@ If you hit a permissions error when calling an API, follow these steps to inspec
 1. Open the [AWS Lambda Console](https://console.aws.amazon.com/lambda/).
 2. Select the failing function (e.g., `LoginFunction`).
 
-![iam-lambda-function](/images/iam-lambda-function.png)
+![iam-lambda-function](../../../images/workshop/iam-lambda-function.png)
 
 3. Go to the **Configuration** tab → **Permissions**.
 4. Click the **Execution role** name (e.g., `LoginFunction-ServiceRole-xxxx`).
-![iam-lambda-function-1](/images/iam-lambda-function-1.png)
+![iam-lambda-function-1](../../../images/workshop/iam-lambda-function-1.png)
 5. The IAM Console opens — review the list of policies attached to that role.
-![iam-lambda-function-2](/images/iam-lambda-function-2.png)
+![iam-lambda-function-2](../../../images/workshop/iam-lambda-function-2.png)
 6. Check whether any policy allows `cognito-idp:InitiateAuth` on your User Pool's ARN.
 
 If the permission is missing, click **Add permissions** → **Attach policies** to add the required policy.

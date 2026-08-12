@@ -10,7 +10,7 @@ pre : " <b> 5.1. </b> "
 
 The **AI Dungeon RPG Adventure Game** architecture decouples the Unity 2D Game Client from the AWS Cloud Backend to ensure security, high performance, and minimal operational overhead.
 
-![Architecture](../../../images/workshop/aws-architect.png)
+![Architecture](../../images/workshop/aws-architect.png)
 
 #### Core AWS Components
 
@@ -40,13 +40,13 @@ The **AI Dungeon RPG Adventure Game** architecture decouples the Unity 2D Game C
 
 The Unity Client is structured as a **C# Full-Stack Monorepo** sharing data models with the backend, and follows a clean **MVP (Model-View-Presenter)** architectural pattern.
 
-![Unity Inspector - GameConfigSO](../../../images/workshop/unity_gameconfig_inspector.png)
+![Unity Inspector - GameConfigSO](../../images/workshop/unity_gameconfig_inspector.png)
 
 ##### Unity Scene Structure
 
 The game is organized into **10 Unity Scenes**, each serving a distinct purpose:
 
-![List scenes](../../../images/workshop/10-scene.png)
+![List scenes](../../images/workshop/10-scene.png)
 
 | Scene | Purpose |
 |---|---|

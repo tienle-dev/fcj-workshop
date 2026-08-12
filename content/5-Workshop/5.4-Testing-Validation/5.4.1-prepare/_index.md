@@ -36,7 +36,7 @@ Content-Type: application/json
 
 If you prefer to test via the Unity Client directly, follow these steps:
 
-![GameConfigSO Inspector](/images/workshop/unity_gameconfig_inspector.png)
+![GameConfigSO Inspector](../../../images/workshop/unity_gameconfig_inspector.png)
 
 1. Open Unity Editor and load the project.
 

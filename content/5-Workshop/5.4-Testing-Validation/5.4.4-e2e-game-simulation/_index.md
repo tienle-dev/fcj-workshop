@@ -28,7 +28,7 @@ Now that all isolated endpoints have been verified, you can test the full game l
 
 #### Unity Scene Navigation Flow
 
-![Unity Scene Flow](/images/workshop/unity_scene_flow.png)
+![Unity Scene Flow](../../../images/workshop/unity_scene_flow.png)
 
 The game is organized into **10 Unity Scenes** with the following navigation flow:
 

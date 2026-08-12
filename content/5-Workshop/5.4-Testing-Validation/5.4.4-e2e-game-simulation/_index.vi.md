@@ -28,7 +28,7 @@ Sau khi kiểm thử độc lập các endpoint API, bạn có thể thực hi�
 
 #### Luồng Chuyển Scene Unity
 
-![Luồng Scene Unity](/images/workshop/unity_scene_flow.png)
+![Luồng Scene Unity](../../../../images/workshop/unity_scene_flow.png)
 
 Game được tổ chức thành **10 Unity Scenes** với luồng điều hướng như sau:
 

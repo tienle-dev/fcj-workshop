@@ -87,7 +87,7 @@ The backend is split into two projects:
 
 After deploying, connect the Unity Client to your live AWS backend:
 
-![GameConfigSO Inspector](../../../images/workshop/unity_gameconfig_inspector.png)
+![GameConfigSO Inspector](../../images/workshop/unity_gameconfig_inspector.png)
 
 1. Open **Unity Editor** and load the project (the `Assets/` folder of this repository).
 

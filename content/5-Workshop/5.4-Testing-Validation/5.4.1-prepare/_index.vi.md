@@ -36,7 +36,7 @@ Content-Type: application/json
 
 Nếu bạn muốn kiểm thử trực tiếp qua Unity Client, thực hiện theo các bước sau:
 
-![GameConfigSO Inspector](/images/workshop/unity_gameconfig_inspector.png)
+![GameConfigSO Inspector](../../../../images/workshop/unity_gameconfig_inspector.png)
 
 1. Mở Unity Editor và load project.
 
