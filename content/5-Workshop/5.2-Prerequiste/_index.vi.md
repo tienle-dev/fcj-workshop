@@ -16,6 +16,8 @@ Trước khi bắt đầu workshop, hãy đảm bảo bạn đã cài đặt và
    - Truy cập: *AWS Console → Bedrock → Model Access → Request Access*.
 
    ![bedrock](../../../images/workshop/bedrock.png)
+   ![bedrock-request](../../../images/workshop/bedrock-request.png)
+   ![bedrock-history](../../../images/workshop/bedrock-request-history.png)
 
 2. **Công cụ Phát triển:**
    - Cài đặt [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
@@ -39,9 +41,13 @@ Trước khi bắt đầu workshop, hãy đảm bảo bạn đã cài đặt và
      - **TextMesh Pro** (`com.unity.textmeshpro`)
    - Project Unity nằm trong thư mục `Assets/` — thêm thư mục gốc của repository vào Unity Hub như một project hiện có.
 
+   ![unity-version](../../../images/workshop/unity-version.png)
+
 ---
 
 #### Quyền IAM cần thiết
+
+![iam](../../../images/workshop/iam.png)
 
 Tài khoản IAM sử dụng AWS CLI cần có quyền tối thiểu để khởi tạo tài nguyên thông qua AWS CDK:
 - `cloudformation:*`

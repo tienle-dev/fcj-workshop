@@ -85,7 +85,7 @@ Backend được tách thành hai project:
 
 Sau khi triển khai xong, kết nối Unity Client tới backend AWS thực:
 
-![GameConfigSO Inspector](/images/workshop/unity_gameconfig_inspector.png)
+![GameConfigSO Inspector](../../../images/workshop/unity_gameconfig_inspector.png)
 
 1. Mở **Unity Editor** và load project (thư mục `Assets/` trong repository này).
 

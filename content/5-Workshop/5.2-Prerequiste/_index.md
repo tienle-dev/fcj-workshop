@@ -15,6 +15,10 @@ Before starting this workshop, ensure you have configured the following tools an
    - Model Access granted in **AWS Bedrock** console for **Anthropic Claude 3 (Haiku/Sonnet)** or **Amazon Nova Micro/Lite** models in your target region (`ap-southeast-1` recommended).
    - Navigate to: *AWS Console → Bedrock → Model Access → Request Access*.
 
+   ![bedrock](../../../images/workshop/bedrock.png)
+   ![bedrock-request](../../../images/workshop/bedrock-request.png)
+   ![bedrock-history](../../../images/workshop/bedrock-request-history.png)
+
 2. **Development Tools:**
    - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) installed.
    - [Node.js (v18+)](https://nodejs.org/) and **AWS CDK CLI**:
@@ -37,9 +41,13 @@ Before starting this workshop, ensure you have configured the following tools an
      - **TextMesh Pro** (`com.unity.textmeshpro`)
    - The project is located in `Assets/` — open it in Unity Hub by adding the repository root as an existing project.
 
+   ![unity-version](../../../images/workshop/unity-version.png)
+
 ---
 
 #### Required IAM Permissions
+
+![iam](../../../images/workshop/iam.png)
 
 Your AWS CLI credentials must have adequate permissions to create resources via AWS CDK, including:
 - `cloudformation:*`

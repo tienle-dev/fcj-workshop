@@ -10,6 +10,8 @@ pre : " <b> 5.3. </b> "
 
 Follow these detailed steps to compile the monorepo shared libraries, build the .NET 8 Lambda functions, and deploy the entire serverless infrastructure using AWS CDK (C#).
 
+> **Before you start**: The CDK stack automatically provisions AWS Cognito (User Pool + App Client) for you — no manual Console setup required. However, understanding how Cognito works in this project will help you debug auth issues and configure the Unity Client correctly. See [5.3.1 Setting Up AWS Cognito](5.3.1-cognito-setup/) for a detailed walkthrough.
+
 ---
 
 #### Step 1: Clone Repository & Build Shared Assets
@@ -85,7 +87,7 @@ The backend is split into two projects:
 
 After deploying, connect the Unity Client to your live AWS backend:
 
-![GameConfigSO Inspector](/images/workshop/unity_gameconfig_inspector.png)
+![GameConfigSO Inspector](../../../images/workshop/unity_gameconfig_inspector.png)
 
 1. Open **Unity Editor** and load the project (the `Assets/` folder of this repository).
 
