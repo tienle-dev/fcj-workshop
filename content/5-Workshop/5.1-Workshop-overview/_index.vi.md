@@ -1,41 +1,114 @@
 ---
-title : "Tổng quan và Kiến trúc"
+title : "Tổng quan về Workshop"
 date : 2024-01-01 
-weight : 1
+weight : 1 
 chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu dự án AI Dungeon RPG Adventure
+#### Tổng quan Kiến trúc
 
-Trong thực tế, việc xây dựng trò chơi nhập vai nhiều người chơi (RPG) đòi hỏi các studio game phải đầu tư một lượng lớn máy chủ tĩnh (Dedicated Servers) để tính toán liên tục. Tuy nhiên, kiến trúc này thường lãng phí tài nguyên khi ít người chơi và dễ gặp sự cố nghẽn mạng khi lưu lượng tăng vọt. 
+Kiến trúc của **AI Dungeon RPG Adventure Game** tách biệt hoàn toàn giữa Unity 2D Client và AWS Cloud Backend nhằm đảm bảo tính bảo mật, hiệu năng cao và tối ưu chi phí vận hành.
 
-Để giải quyết bài toán này, workshop của chúng ta sẽ ứng dụng mô hình **Serverless (Không máy chủ)** trên hạ tầng AWS. Điều này giúp các nhà phát triển tập trung 100% vào việc thiết kế tính năng trò chơi, hệ thống tự động co giãn và chỉ tính phí khi có người chơi tương tác.
+![Architecture](../../../images/workshop/aws-architect.png)
 
-Bên cạnh đó, thay vì một kịch bản tĩnh truyền thống, "trí não" của game được điều khiển bởi AI tạo sinh, tạo ra trải nghiệm phiêu lưu hoàn toàn khác biệt mỗi khi bạn chơi.
+#### Các thành phần AWS chính
 
-#### Mô hình kiến trúc hệ thống (System Architecture)
+1. **Unity 2D Game Client:**
+   - Giao diện người dùng cho Đăng nhập, Tạo/Chọn Nhân vật, Hội thoại Cốt truyện Động và Trận đánh theo lượt.
+   - Chia sẻ C# DTOs và Domain Models với Backend thông qua thư viện `shared` (`GameShared.dll`).
 
-Hệ thống được thiết kế theo hướng sự kiện (Event-Driven Architecture) với các tầng dịch vụ tách biệt rõ ràng, đảm bảo tốc độ phản hồi cực nhanh cho các thao tác của người chơi.
+2. **Amazon API Gateway & Amazon Cognito:**
+   - API Gateway đóng vai trò là điểm tiếp nhận duy nhất cho toàn bộ các endpoint game.
+   - Amazon Cognito quản lý đăng ký, đăng nhập và cấp phát JWT token để bảo mật API.
 
-![Sơ đồ kiến trúc hạ tầng AWS](../../../images/5-Workshop/5.1-Workshop-overview/diagram.png)
-*Hình 5.1: Sơ đồ kiến trúc hạ tầng đám mây AWS của hệ thống Game*
+3. **AWS Lambda (.NET 8):**
+   - Xử lý logic Serverless hiệu năng cao cho quản lý nhân vật, túi đồ, tính toán sát thương trận đánh và xây dựng prompt cho AI.
 
-Các thành phần chính tham gia vào hệ thống bao gồm:
+4. **AWS Bedrock:**
+   - Đóng vai trò là "Dungeon Master AI". Sinh cốt truyện sinh động, phân tích lựa chọn của người chơi và tạo diễn biến trận đánh theo thời gian thực.
 
-1. **Presentation Layer (Client)**: 
-   - Giao diện trò chơi được lập trình trên Unity 2D. 
-   - Kết nối với Backend thông qua các API RESTful bảo mật với JWT Token.
+5. **Amazon DynamoDB:**
+   - Cơ sở dữ liệu NoSQL độ trễ thấp (vài miligiây) lưu trữ thông tin Người dùng, Nhân vật, Vật phẩm, Session Cốt truyện và Boss.
 
-2. **Cổng giao tiếp (API Gateway & Auth)**:
-   - **Amazon API Gateway**: Điểm chạm duy nhất đón nhận các yêu cầu HTTP từ Unity Client và chuyển tiếp đến Lambda xử lý.
-   - **Amazon Cognito**: Đóng vai trò làm lớp lá chắn bảo mật, quản lý việc đăng ký, đăng nhập và cấp phát Token cho người chơi.
+6. **AWS CDK (C#):**
+   - Khai báo toàn bộ hạ tầng AWS dưới dạng mã nguồn (IaC) bằng C#, giúp triển khai nhanh chóng và nhất quán.
 
-3. **Lớp xử lý nghiệp vụ (Business Logic)**:
-   - Các hàm **AWS Lambda** (được viết bằng C# .NET 8) đảm nhận nhiệm vụ riêng biệt như: Tạo nhân vật, Quản lý túi đồ (Inventory), hay Tính toán điểm sát thương khi đánh Boss.
+---
 
-4. **Lớp Dữ liệu và Trí tuệ nhân tạo (Data & AI)**:
-   - **Amazon DynamoDB**: Cơ sở dữ liệu NoSQL với độ trễ tính bằng mili-giây, lưu trữ thông tin về nhân vật, vật phẩm và lịch sử các trận đấu.
-   - **Amazon Bedrock**: Dịch vụ cung cấp các mô hình ngôn ngữ lớn (LLM). Đóng vai trò là Game Master, nhận ngữ cảnh của nhân vật và sinh ra đoạn văn dẫn chuyện tiếp theo.
+#### Kiến trúc Unity Client
 
-Tất cả các thành phần này sẽ được triển khai tự động thông qua mã nguồn bằng công cụ **AWS Cloud Development Kit (CDK)**.
+Unity Client được xây dựng theo mô hình **C# Full-Stack Monorepo** chia sẻ data models với backend, áp dụng mô hình kiến trúc **MVP (Model-View-Presenter)** cho toàn bộ màn hình game.
+
+![Unity Inspector - GameConfigSO](../../../images/workshop/unity_gameconfig_inspector.png)
+
+##### Cấu trúc Unity Scenes
+
+Game được tổ chức thành **10 Unity Scenes**, mỗi Scene phục vụ một chức năng riêng biệt:
+
+![List scenes](../../../images/workshop/10-scene.png)
+
+| Scene | Chức năng |
+|---|---|
+| `Login.unity` | Đăng nhập với xác thực Cognito |
+| `Register.unity` | Đăng ký tài khoản mới |
+| `Welcome.unity` | Màn hình chào mừng / loading |
+| `Menu.unity` | Hub chính — điều hướng đến tất cả tính năng |
+| `Profile.unity` | Chỉ số nhân vật, trang bị và lịch sử |
+| `Shop.unity` | Mua bán vật phẩm và quản lý túi đồ |
+| `StoryScene.unity` | Cốt truyện dungeon sinh động bởi AI |
+| `BattleScene.unity` | Trận đánh turn-based với Boss |
+| `WinBattle.unity` | Màn hình chiến thắng và loot phần thưởng |
+| `LoseBattle.unity` | Màn hình thất bại và thử lại |
+
+##### Mô hình MVP cho từng tính năng
+
+Mỗi tính năng lớn trong game tuân theo mô hình **Model-View-Presenter**:
+
+```text
+Tính năng (ví dụ: Story)
+├── StoryModel.cs       — Cấu trúc dữ liệu (trạng thái nhân vật, session data)
+├── StoryPresenter.cs   — Logic nghiệp vụ, gọi API, quản lý state
+└── StoryView.cs        — Unity UI components, animation, nhận input người dùng
+```
+
+| Tính năng | Model | Presenter | View |
+|---|---|---|---|
+| Story | `StoryModel.cs` | `StoryPresenter.cs` | `StoryView.cs` |
+| Battle | `BattleModel.cs` | `BattleService.cs` | `BattleUI.cs` |
+| Profile | `ProfileModel.cs` | `ProfilePresenter.cs` | `ProfileView.cs` |
+| Inventory | `ItemData.cs` | `InventoryManager.cs` | `InventorySlotUI.cs` |
+
+##### Tích hợp Shared Library
+
+Project `GameShared` (biên dịch dưới dạng `.NET Standard 2.1`) được tự động đồng bộ vào Unity qua PostBuild event:
+
+```xml
+<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+  <Copy SourceFiles="$(OutputPath)GameShared.dll;$(OutputPath)GameShared.pdb"
+        DestinationFolder="../Assets/Plugins"
+        SkipUnchangedFiles="true" />
+</Target>
+```
+
+Nhờ đó, file `Assets/Plugins/GameShared.dll` trong Unity luôn đồng bộ với DTOs và Domain Models của backend — **không bao giờ xảy ra lỗi schema không khớp**.
+
+##### Mock Mode vs Online Mode
+
+ScriptableObject `GameConfigSO` (`Assets/Resources/GameConfig.asset`) kiểm soát hành vi runtime:
+
+```csharp
+// Assets/Scripts/Config/GameConfigSO.cs
+[CreateAssetMenu(fileName = "GameConfig", menuName = "Game/GameConfig")]
+public class GameConfigSO : ScriptableObject
+{
+    public string apiBaseUrl;           // URL API Gateway AWS
+    public string awsCognitoUserPoolId; // Cognito User Pool ID
+    public string awsCognitoClientId;   // Cognito App Client ID
+    public string awsCognitoRegion;     // ví dụ: "ap-southeast-1"
+    public bool   useMockMode;          // true = mock offline, false = AWS thực
+    public bool   enableApiLogging;     // Ghi log tất cả HTTP requests ra Console
+}
+```
+
+Khi `useMockMode = true`, game sử dụng `MockAuthService` với dữ liệu test có sẵn — lý tưởng để phát triển giao diện mà không cần backend đang chạy.
