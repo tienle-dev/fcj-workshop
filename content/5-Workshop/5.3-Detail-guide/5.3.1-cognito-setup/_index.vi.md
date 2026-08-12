@@ -43,7 +43,7 @@ GameStack.ApiGatewayUrl         = https://xxxxxxx.execute-api.ap-southeast-1.ama
 
 Đây là toàn cảnh những gì xảy ra khi người chơi đăng nhập:
 
-![Cognito Flow](/images/cognito-flow.png)
+![Cognito Flow](../../../../images/workshop/cognito-flow.png)
 
 ---
 
@@ -53,9 +53,9 @@ Khi bạn đăng ký tài khoản mới (`POST /auth/register`), Cognito tạo n
 
 Mặc định, Cognito gửi **email xác minh** đến địa chỉ đã đăng ký. Sau khi người dùng nhấn vào link (hoặc nhập mã), tài khoản trở thành `CONFIRMED` và có thể đăng nhập.
 
-![Cognito Register](/images/cognito-register.png)
-![Cognito Verification](/images/cognito-verification.png)
-![Cognito Status](/images/cognito-status.png)
+![Cognito Register](../../../../images/workshop/cognito-register.png)
+![Cognito Verification](../../../../images/workshop/cognito-verification.png)
+![Cognito Status](../../../../images/workshop/cognito-status.png)
 
 **Để phục vụ mục đích kiểm thử**, bạn có hai cách bỏ qua bước này:
 
@@ -66,12 +66,12 @@ Mặc định, Cognito gửi **email xác minh** đến địa chỉ đã đăng
 1. Mở [Amazon Cognito Console](https://console.aws.amazon.com/cognito/).
 2. Nhấn **User Pools** ở thanh điều hướng bên trái.
 3. Chọn User Pool của bạn (tên `GameUserPool` hoặc tương tự).
-![status0](/images/cognito-change-status-0.png)
+![status0](../../../../images/workshop/cognito-change-status-0.png)
 4. Nhấn tab **Users**.
 5. Tìm người dùng vừa đăng ký (tìm theo username hoặc email).
-![status1](/images/cognito-change-status-1.png)
+![status1](../../../../images/workshop/cognito-change-status-1.png)
 6. Nhấn vào tên người dùng để mở trang chi tiết.
-![status2](/images/cognito-change-status-2.png)
+![status2](../../../../images/workshop/cognito-change-status-2.png)
 7. Nhấn **Actions** → **Confirm user**.
 
 Trạng thái người dùng sẽ chuyển từ `UNCONFIRMED` sang `CONFIRMED` và họ có thể đăng nhập ngay.
@@ -96,7 +96,7 @@ Thay `ap-southeast-1_AbCdEfGhI` bằng `CognitoUserPoolId` thực tế từ outp
 
 Cognito trả về ba token khi đăng nhập thành công. Đây là vai trò của từng token trong dự án này:
 
-![token](/images/cognito-access-token.png)
+![token](../../../../images/workshop/cognito-access-token.png)
 
 | Token | Thời hạn | Dùng để |
 |---|---|---|
@@ -114,7 +114,7 @@ Sau khi có output từ CDK, mở Unity Editor:
 
 1. Trong panel **Project** → `Assets/Resources/` → chọn `GameConfig.asset`
 
-![config](/images/unity_gameconfig_inspector.png)
+![config](../../../../images/workshop/unity_gameconfig_inspector.png)
 
 2. Trong **Inspector**, điền vào:
 
@@ -144,7 +144,7 @@ Sau khi có output từ CDK, mở Unity Editor:
 
 ##### Tại sao cần IAM?
 
-![iam](/images/iam.png)
+![iam](../../../../images/workshop/iam.png)
 
 Cognito không hoạt động độc lập — Lambda functions cần quyền IAM để **gọi Cognito API** (đăng nhập, đăng ký, xác nhận user...). Ngoài ra, tài khoản AWS của bạn cần quyền IAM để **CDK có thể tạo** Cognito User Pool trong quá trình deploy.
 
@@ -220,13 +220,17 @@ Nếu bạn gặp lỗi liên quan đến quyền khi chạy API, làm theo các
 1. Mở [AWS Lambda Console](https://console.aws.amazon.com/lambda/).
 2. Chọn function bị lỗi (ví dụ: `LoginFunction`).
 
-![iam-lambda-function](/images/iam-lambda-function.png)
+![iam-lambda-function](../../../../images/workshop/iam-lambda-function.png)
 
 3. Vào tab **Configuration** → **Permissions**.
 4. Nhấn vào tên **Execution role** (ví dụ: `LoginFunction-ServiceRole-xxxx`).
-![iam-lambda-function-1](/images/iam-lambda-function-1.png)
+
+![iam-lambda-function-1](../../../../images/workshop/iam-lambda-function-1.png)
+
 5. Trang IAM Console sẽ mở — xem danh sách policy được gắn vào role đó.
-![iam-lambda-function-2](/images/iam-lambda-function-2.png)
+
+![iam-lambda-function-2](../../../../images/workshop/iam-lambda-function-2.png)
+
 6. Kiểm tra xem có policy nào cho phép `cognito-idp:InitiateAuth` trên resource là User Pool ARN của bạn không.
 
 Nếu thiếu, nhấn **Add permissions** → **Attach policies** để thêm quyền cần thiết.

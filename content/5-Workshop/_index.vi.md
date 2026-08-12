@@ -8,7 +8,7 @@ pre: " <b> 5. </b> "
 
 # Xây dựng & Triển khai Backend Game AI Dungeon RPG trên AWS
 
-![Tổng quan Kiến trúc](/images/workshop/arch_overview.png)
+![Tổng quan Kiến trúc](../../images/workshop/aws-architect.png)
 
 #### Tổng quan
 
