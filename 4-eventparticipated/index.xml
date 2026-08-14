@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Events Participated on Internship Report</title><link>https://tienle-dev.github.io/fcj-workshop/4-eventparticipated/</link><description>Recent content in Events Participated on Internship Report</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate><atom:link href="https://tienle-dev.github.io/fcj-workshop/4-eventparticipated/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://tienle-dev.github.io/fcj-workshop/4-eventparticipated/su-kien-1/fcaj-event-13_6_2026/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tienle-dev.github.io/fcj-workshop/4-eventparticipated/su-kien-1/fcaj-event-13_6_2026/</guid><description>&lt;p&gt;FCAJ Event 13/6/2026&lt;/p&gt;
+&lt;h1 id="a-kiên-và-thọ"&gt;A. Kiên và Thọ&lt;/h1&gt;
+&lt;h2 id="1-thông-tin-chung--diễn-giả"&gt;&lt;strong&gt;1. Thông tin chung &amp;amp; Diễn giả&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Chủ đề:&lt;/strong&gt; A scalable URL shortening service on AWS (Dịch vụ rút gọn liên kết có thể mở rộng trên AWS).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Diễn giả:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Đinh Trung Kiên:&lt;/strong&gt; Lead developer tại một công ty startup.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nguyễn Minh Thọ:&lt;/strong&gt; Sinh viên.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sự kiện:&lt;/strong&gt; Thuộc chuỗi AWS Journey / FCAJ Meetup.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2-đặt-vấn-đề--luồng-xử-lý-cơ-bản-simple-flow"&gt;&lt;strong&gt;2. Đặt vấn đề &amp;amp; Luồng xử lý cơ bản (Simple Flow)&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bản chất của URL Shortener:&lt;/strong&gt; Chuyển đổi một đường dẫn dài phức tạp thành một liên kết ngắn gọn (Ví dụ từ liên kết mua sách Amazon dài thành mã ngắn dạng a.co/d/&amp;hellip;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mô hình cơ bản ban đầu:&lt;/strong&gt; Người dùng → Frontend → Backend → Database (Ghi nhận mã ngắn và URL dài vào cơ sở dữ liệu).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Đánh giá mô hình cơ bản:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Ưu điểm:&lt;/em&gt; Dễ triển khai, chi phí rẻ.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Nhược điểm:&lt;/em&gt; Dễ bị tổn thương (bảo mật), độ trễ khi đọc cao (Read Latency), có điểm lỗi đơn lẻ (Single Point of Failure), và rất khó để mở rộng quy mô (Hard to scale) khi lượng truy cập lớn.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="3-kiến-trúc-tổng-quan-trên-aws-overview-architecture"&gt;&lt;strong&gt;3. Kiến trúc tổng quan trên AWS (Overview Architecture)&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Để giải quyết các nhược điểm trên, hai diễn giả đề xuất một kiến trúc hệ thống phân tán mạnh mẽ sử dụng hàng loạt dịch vụ của AWS:&lt;/p&gt;</description></item><item><title/><link>https://tienle-dev.github.io/fcj-workshop/4-eventparticipated/su-kien-2/fcaj-community-day---june-2026-event-27_6_2026/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tienle-dev.github.io/fcj-workshop/4-eventparticipated/su-kien-2/fcaj-community-day---june-2026-event-27_6_2026/</guid><description>&lt;p&gt;Dưới đây là nội dung chi tiết và cụ thể theo từng session (phiên chia sẻ) của sự kiện &lt;strong&gt;FCAJ Community Day - June 2026&lt;/strong&gt;:&lt;/p&gt;
+&lt;h3 id="session-1-định-hướng-nghề-nghiệp-với-cloud--giới-thiệu-về-cloud-thinker"&gt;&lt;strong&gt;Session 1: Định hướng nghề nghiệp với Cloud &amp;amp; Giới thiệu về Cloud Thinker&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Speaker:&lt;/strong&gt; Anh Steve Trần (Founder của Cloud Thinker, cựu Solution Architect tại AWS) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=782"&gt;13:02&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nội dung chính:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hành trình sự nghiệp (Career Path):&lt;/strong&gt; Diễn giả chia sẻ hành trình từ năm 19 tuổi khi bỏ học đại học để đi làm bảo trì server vật lý cho các Contact Center [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=913"&gt;15:13&lt;/a&gt;]. Sau đó, anh tự học Cloud (từng trượt chứng chỉ Azure 3-4 lần trước khi chuyển sang AWS) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=974"&gt;16:14&lt;/a&gt;]. Trong vòng 4 năm từ một kỹ sư hạ tầng bình thường, anh đã trở thành Solution Architect tại AWS nhờ dự đoán đúng xu hướng bùng nổ Cloud thời kỳ Covid [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=1100"&gt;18:20&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Thách thức thời đại AI:&lt;/strong&gt; Diễn giả cảnh báo về việc các doanh nghiệp đang giảm tuyển dụng vị trí Developer/Cloud Junior và chuyển sang dùng công nghệ AI phối hợp với Senior [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=1174"&gt;19:34&lt;/a&gt;]. Anh khuyên sinh viên nên đi thực tập, trải nghiệm doanh nghiệp sớm [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=1243"&gt;20:43&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sản phẩm Cloud Thinker:&lt;/strong&gt; Giải quyết bài toán giảm độ phức tạp (Complexities) và nợ công nghệ (Technical Debt) khi hệ thống của doanh nghiệp phình to [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=1323"&gt;22:03&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kiến trúc Multi-Agent:&lt;/strong&gt; Giải thích lý do chọn mô hình Multi-Agent (nhiều AI Agent chuyên biệt) thay vì Single Agent nhằm tối ưu hóa chi phí xử lý văn cảnh (Context), quản lý quyền truy cập (Role-based access control) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=2157"&gt;35:57&lt;/a&gt;] và vận hành trên nhiều môi trường phức tạp cùng lúc mà không lo bị ảo giác (Hallucination) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=2346"&gt;39:06&lt;/a&gt;].&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="session-2-giọng-nói-của-ai-voice-ai-agent--ứng-dụng-thực-tế"&gt;&lt;strong&gt;Session 2: Giọng nói của AI (Voice AI Agent) &amp;amp; Ứng dụng thực tế&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Speakers:&lt;/strong&gt; Anh Hiếu Nghị (Renova Cloud), anh Kiệt (AWS Study Builder) và anh Trung Đỗ (CEO của R AI) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=2623"&gt;43:43&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nội dung chính:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tổng quan về Voice AI:&lt;/strong&gt; Anh Nghị giới thiệu về hai dạng kiến trúc hệ thống Voice (Speech-to-Speech trực tiếp và mô hình kết hợp 3 bước: Speech-to-Text → LLM xử lý → Text-to-Speech) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=2815"&gt;46:55&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Demo thực tế:&lt;/strong&gt; Diễn giả thực hiện Live Demo một Voice Agent nói tiếng Anh được build trên hạ tầng AWS Bedrock, tích hợp Knowledge Base để trả lời thông tin về sản phẩm MacBook của Apple [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=3012"&gt;50:12&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bài toán Voice AI cho tiếng Việt (Enterprise):&lt;/strong&gt; Anh Trung Đỗ phân tích tiếng Việt là ngôn ngữ ít tài nguyên (low-resource) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=3172"&gt;52:52&lt;/a&gt;], do đó R AI áp dụng kiến trúc 3 bước (STT → LLM → TTS) cho các ngân hàng như VPBank, VIB để kiểm soát nội dung trả lời real-time và thực hiện cuộc gọi công cụ (Tool calling) như khóa thẻ [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=3215"&gt;53:35&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Các tính năng nâng cao cho tiếng Việt:&lt;/strong&gt; Hệ thống của R AI xử lý luồng âm thanh dạng Stream để giảm latency, tự động nhận diện giới tính (để xưng hô anh/chị chính xác) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=3418"&gt;56:58&lt;/a&gt;], train model nhận biết ngữ cảnh dừng nghỉ để ngắt lời tự nhiên (Interruption handling) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=3425"&gt;57:05&lt;/a&gt;], kết hợp hệ thống chuyển giao mượt mà cho tổng đài viên là con người khi AI gặp ca khó [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=3524"&gt;58:44&lt;/a&gt;]. Xử lý giọng nói vùng miền (Accent) bằng cách đưa 10-20% dữ liệu vùng miền vào tập train [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=3054"&gt;50:54&lt;/a&gt;].&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="session-3-devops-ai-agent-aws-devops-guru--amazon-q-developer-agent"&gt;&lt;strong&gt;Session 3: DevOps AI Agent (AWS DevOps Guru / Amazon Q Developer Agent)&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Speakers:&lt;/strong&gt; Chị Bảo và anh Nguyên Nguyễn (Cloud Engineers từ Cloud Kinetic) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=3815"&gt;01:03:35&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nội dung chính:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vấn đề của phương pháp DevOps truyền thống:&lt;/strong&gt; Khi hệ thống gặp sự cố (Incident), kỹ sư mất nhiều thời gian tìm log/trace ở nhiều nơi rải rác, bị ngắt quãng liên tục, dẫn đến thời gian khắc phục (MTTR) bị kéo dài [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=3902"&gt;01:05:02&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Giải pháp DevOps AI Agent:&lt;/strong&gt; Tự động hóa quá trình học ngữ cảnh hệ thống qua &amp;ldquo;Agent Space&amp;rdquo; (vùng chứa logic phân quyền tài nguyên dựa trên Tag) để vẽ ra sơ đồ cấu trúc (Topology) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=4067"&gt;01:07:47&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cách tính phí:&lt;/strong&gt; Công cụ tính phí dựa trên thời gian thực thi tác vụ (khoảng 0.083 USD/giây) chứ không tính theo lượng Token [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=4320"&gt;01:12:00&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quy trình 4 bước xử lý sự cố:&lt;/strong&gt; 1. Phân loại/Trích xuất dữ liệu khi có alert → 2. Điều tra tìm nguyên nhân gốc rễ (Root Cause Analysis - RCA) → 3. Đề xuất phương án xử lý (Mitigation Plan - Agent chỉ khuyến nghị chứ không tự áp dụng để đảm bảo an toàn) → 4. Đề xuất cải thiện hệ thống lâu dài [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=4345"&gt;01:12:25&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Live Demo:&lt;/strong&gt; Mô phỏng cuộc tấn công Mock DDoS (1000 request/giây) vào một ứng dụng E-commerce chạy trên ECS [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=4672"&gt;01:17:52&lt;/a&gt;]. DevOps Agent tự động quét, tìm ra nguyên nhân và xuất ra các dòng lệnh cụ thể. Kỹ sư chỉ cần copy-paste vào terminal để tắt các task ECS độc hại, đưa ứng dụng hoạt động bình thường trở lại [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=4850"&gt;01:20:50&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Case Studies thực tế:&lt;/strong&gt; Đưa ra ví dụ từ các khách hàng lớn giúp giảm thời gian xử lý sự cố từ hàng tiếng/hàng tuần xuống còn vài phút/vài ngày (như Đại học WGU giảm 77% MTTR) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=5041"&gt;01:24:01&lt;/a&gt;].&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="session-4-vai-trò-của-ai-trong-quản-trị-nguồn-nhân-lực-hr--talent-acquisition"&gt;&lt;strong&gt;Session 4: Vai trò của AI trong Quản trị Nguồn nhân lực (HR &amp;amp; Talent Acquisition)&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Speakers:&lt;/strong&gt; Anh Trường và chị Minh Anh (Solution Architects từ Noventic) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=5511"&gt;01:31:51&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nội dung chính:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Khó khăn của bộ phận HR hiện tại:&lt;/strong&gt; Lọc CV thủ công dễ bỏ sót nhân tài, tốn thời gian on-boarding (Time to hire kéo dài 1-2 tháng), đánh giá ứng viên mang tính cảm tính, rủi ro bảo mật dữ liệu khi đẩy CV ứng viên lên các AI Public [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=6327"&gt;01:45:27&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Giải pháp Amazon Q Business (Amazon Quick):&lt;/strong&gt; Đây là một AI Chat Agent dành cho Enterprise cho phép kết nối đa nền tảng (Microsoft Sharepoint, OneDrive, Google Drive, Gmail, Jira, GitHub, S3&amp;hellip;) để gom dữ liệu rời rạc [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=6804"&gt;01:53:24&lt;/a&gt;]. Khả năng lưu ngữ cảnh vào bộ nhớ riêng giúp tiết kiệm lượng token tiêu thụ [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=7314"&gt;02:01:54&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Live Demo quy trình HR tự động:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Tạo một Skill chuyên biệt mang tên &amp;ldquo;HR Talent Review Assistant&amp;rdquo; từ các file hướng dẫn định dạng Markdown [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=7389"&gt;02:03:09&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;AI tự động viết Job Description (JD) cho vị trí Junior Cloud Engineer dựa trên các template có sẵn [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=7480"&gt;02:04:40&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;Giao việc cho AI tự động quét (OCR) toàn bộ các file CV có trong thư mục, đối chiếu với JD để phân loại ứng viên theo các mức độ (Strong, Good, Low, Very Low) kèm lý do chi tiết [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=7538"&gt;02:05:38&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;Tự động xuất ra một file báo cáo Talent Review dạng HTML trực quan chấm điểm theo khung tiêu chí năng lực (Technical, Problem Solving, Communication) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=7624"&gt;02:07:04&lt;/a&gt;] và gợi ý khung lương phù hợp cho từng người [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=7714"&gt;02:08:34&lt;/a&gt;].&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="session-5-thiết-lập-bảo-mật-cho-amazon-q-business-với-private-mcp-server"&gt;&lt;strong&gt;Session 5: Thiết lập Bảo mật cho Amazon Q Business với Private MCP Server&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Speakers:&lt;/strong&gt; Bạn Toàn Nguyễn (AWS Security Builder) và anh Hiếu Nghị (Renova Cloud) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=8045"&gt;02:14:05&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nội dung chính:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rủi ro bảo mật:&lt;/strong&gt; Thông thường các AI Agent kết nối với các hệ thống bên thứ ba (MCP Server) qua Internet Public, dễ gặp rủi ro bị tấn công từ chối dịch vụ (DoS) hoặc tấn công đứng giữa (Man-in-the-middle) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=8426"&gt;02:20:26&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Giải pháp Private Connection:&lt;/strong&gt; Ứng dụng tính năng AWS VPC Connection để đưa luồng kết nối của Amazon Q vào trong mạng nội bộ (Private Subnet). Sử dụng cơ chế phân giải DNS nội bộ của Route 53 Resolver, định tuyến qua Application Load Balancer (ALB) tích hợp chứng chỉ bảo mật ACM [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=8493"&gt;02:21:33&lt;/a&gt;]. Toàn bộ dữ liệu truy vấn từ AI Agent đến các API bên thứ ba (như Zalo, WhatsApp, Slack&amp;hellip;) không hề đi qua Internet Public [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=8640"&gt;02:24:00&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Demo kỹ thuật:&lt;/strong&gt; Thực hiện kiểm tra câu lệnh truy vấn từ Amazon Q, cho thấy hệ thống chặn hoàn toàn các truy cập từ Public IP [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=8644"&gt;02:24:04&lt;/a&gt;] nhưng vẫn cho phép AI lấy thông tin Real-time về latency và các dịch vụ đang chạy trong mạng nội bộ một cách bảo mật [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=8732"&gt;02:25:32&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Chi phí vận hành hệ thống bảo mật (Cost Estimate):&lt;/strong&gt; Chi phí thiết lập mạng Private này dao động khoảng từ 250 - 350 USD/tháng (bao gồm chi phí cố định cho Route 53 Resolver khoảng 180 USD, ALB 32 USD, tiền hạ tầng EC2 và chi phí Data Transfer In/Out thực tế) [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=8898"&gt;02:28:18&lt;/a&gt;].&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sự kiện kết thúc bằng hoạt động chụp hình lưu niệm giữa các speaker và người tham gia [&lt;a href="https://www.youtube.com/watch?v=G8-WlI7f6dE&amp;amp;t=9068"&gt;02:31:08&lt;/a&gt;].&lt;/p&gt;</description></item><item><title/><link>https://tienle-dev.github.io/fcj-workshop/4-eventparticipated/su-kien-3/fcaj-event-1_8_2026/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tienle-dev.github.io/fcj-workshop/4-eventparticipated/su-kien-3/fcaj-event-1_8_2026/</guid><description>&lt;p&gt;TÀI LIỆU CHI TIẾT SỰ KIỆN: AWS FCAJ AGENT FORGE - DEEPDIVE
+I. TỔNG QUAN SỰ KIỆN &amp;amp; NGỮ CẢNH CHUYÊN MÔN
+Tên sự kiện: AWS FCAJ Agent Forge - Deepdive.
+Đơn vị tổ chức: AWS Study Group.
+Diễn giả: Anh Nghĩa (Phụ trách phần Lý thuyết &amp;amp; Kiến trúc) và Hải Anh (Phụ trách phần Hands-on Lab).
+Cấp độ kiến thức: L300 (Advanced Level) — Dành cho Kỹ sư AI, Cloud Architect và Developer muốn đưa các ứng dụng Generative AI từ dạng thử nghiệm (Proof of Concept - PoC) lên môi trường triển khai thực tế (Production-ready).
+Bối cảnh nội dung: Bài giảng chuẩn từ AWS đóng gói khoảng 350 slide giảng dạy trong 1 ngày, tập trung giải quyết các rào cản lớn khi đưa AI Agent vào doanh nghiệp: Performance (Hiệu năng), Scalability (Khả năng mở rộng), Security (Bảo mật) và Governance (Quản trị).
+II. LỘ TRÌNH ĐÀO TẠO KHÓA HỌC (AGENDA 3 NGÀY)
+Ngày 1: Nền tảng Agentic AI &amp;amp; Bedrock Agent Core (Runtime, Gateway, Identity)
+Tìm hiểu khái niệm Agentic AI, mức độ tự chủ, giao thức kết nối mới (MCP, A2A).
+Chi tiết môi trường thực thi Amazon Bedrock Agent Core Runtime, công nghệ cách ly Firecracker MicroVM.
+Lớp bảo mật định danh Identity và Cổng kết nối Gateway.
+Thực hành: Cài đặt Kiro IDE, cấu hình Steering Rules và Deploy Agent đầu tiên qua AgentCore CLI.
+Ngày 2: Memory Management, Observability &amp;amp; Guardrails
+Quản lý bộ nhớ ngắn hạn (Short-term) và dài hạn (Long-term) cho từng Session/User.
+Giám sát hệ thống (Observability), ghi nhận log/metrics trên Amazon CloudWatch.
+Thiết lập rào cản an toàn (Guardrails) chống Prompt Injection và lộ dữ liệu.
+Ngày 3: Enterprise Use Cases &amp;amp; Best Practices
+Kiến trúc tích hợp Agent cho ngân hàng, thương mại điện tử, chăm sóc khách hàng.
+Tối ưu hóa chi phí, quy trình Rollout/Rollback và xây dựng hệ thống hoàn chỉnh.
+III. NỘI DUNG LÝ THUYẾT CHI TIẾT (DAY 1)&lt;/p&gt;</description></item></channel></rss>
