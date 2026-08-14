@@ -34,3 +34,12 @@ Trong bài workshop này, bạn sẽ học cách thiết lập, triển khai (Ia
 4. [Kiểm thử và Xác minh](5.4-Testing-Validation/)
 5. [Dọn dẹp tài nguyên](5.5-Cleanup/)
 6. [Tài liệu tham khảo](5.6-References/)
+
+#### Các thành viên tham gia dự án
+
+| STT | Họ và tên |
+|---|---|
+| 1 | Hồ Quốc Khôi |
+| 2 | Lê Đình Trung |
+| 3 | Nguyễn Hữu Tính |
+| 4 | Lê Minh Tiến |

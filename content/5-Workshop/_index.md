@@ -34,3 +34,12 @@ In this workshop, you will learn how to set up, deploy, test, and validate a pro
 4. [Testing & Validation](5.4-Testing-Validation/)
 5. [Clean Up Resources](5.5-Cleanup/)
 6. [References & Resources](5.6-References/)
+
+#### Team Members
+
+| No. | Full Name |
+|---|---|
+| 1 | Hồ Quốc Khôi |
+| 2 | Lê Đình Trung |
+| 3 | Nguyễn Hữu Tính |
+| 4 | Lê Minh Tiến |
